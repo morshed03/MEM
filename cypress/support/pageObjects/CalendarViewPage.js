@@ -1,8 +1,8 @@
 class CalendarViewPage
 {
-    getMEMAvatar()
+    getSearchField()
     {
-        return cy.get('img[src="assets/img/brand/mem.svg"]')
+        return cy.get('#mat-input-0')
     }
 }
 export default CalendarViewPage;

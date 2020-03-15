@@ -1,0 +1,23 @@
+{
+  "userName": "nilo0001",
+  "password": "123456789",
+  "validationMessage": "ব্যবহারকারীর নাম বা পাসওয়ার্ড ভুল!",
+
+  "//": "Create meeting data",
+
+  "meetingName": "বাংলাদেশ ই-গভর্নমেন্ট ইআরপি (২য় সংশোধিত) প্রকল্পের \"প্রকল্প বাস্তবায়ন কমিটির পঞ্চম সভা\"",
+  "referenceNo": "৫৬.০১.০০০০.০২২.০৬.০২৭.১৯-খ-৩",
+  "meetingType": "প্রকল্প স্টিয়ারিং কমিটির সভা(PSC)",
+  "meetingRoom": "বিসিসি' র সভাকক্ষ (২য় তলা)",
+  "meetingYear": "২০২০",
+  "meetingMonth": "এপ্রিল",
+  "meetingDay": "৩",
+  "startTimeHour": "8",
+  "startTimeMinute": "00",
+  "startTimeAmpm": "AM",
+  "endTimeHour": "9",
+  "endTimeMinute": "00",
+  "endTimeAmpm": "AM",
+  "notes": "date is changed for now as meetings on previous date are not available"
+  
+}

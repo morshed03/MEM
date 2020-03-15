@@ -1,24 +1,67 @@
 /// <reference types="Cypress" />
 import DashboardPage from '../../support/pageObjects/DashboardPage'
+import MeetingListPage from '../../support/pageObjects/MeetingListPage'
+import CreateNewMeetingPage from '../../support/pageObjects/CreateNewMeetingPage'
 
 describe('Create Meeting Test Suite', function()
 {
     beforeEach(function() 
     {
-      cy.fixture('commonData').then(function(data)
+      cy.fixture('MEMTestData').then(function(data)
       {
         this.data = data
       })
       cy.visit(Cypress.env('url'))
-    })
+    })/*
+    beforeEach(function() 
+    {
+      cy.fixture('createMeetingData').then(function(data)
+      {
+        this.data = data
+      })
+    })*/
 
     const dashboardPage = new DashboardPage()
+    const meetingListPage = new MeetingListPage()
+    const createNewMeetingPage = new CreateNewMeetingPage()
 
     it('Create Meeting TC',function() 
     {
-        //cy.visit(Cypress.env('url'))
+        //Login 
         cy.login(this.data.userName, this.data.password)
+        //goto-mem
         dashboardPage.getMEMAvatar().click()
+        //mem-list
+        meetingListPage.getListNavLink().click()
+        //create-meeting
+        meetingListPage.getCreateNewButton().click()
+        //goto-basic-info
+        createNewMeetingPage.getBasicInfoTab().click()
+        //entry-basic-info
+        createNewMeetingPage.getMeetingTitleField().click().type(this.data.meetingName)
+        createNewMeetingPage.getReferenceNoField().click().type(this.data.referenceNo)
+        createNewMeetingPage.getMeetingTypeField().click()
+        createNewMeetingPage.getMeetingDropDownItem().contains(this.data.meetingType).click()
+        createNewMeetingPage.getMeetingRoomField().click()
+        createNewMeetingPage.getMeetingDropDownItem().contains(this.data.meetingRoom).click()
+        createNewMeetingPage.getMeetingDateCalendar().click()
+        createNewMeetingPage.getMeetingCalendarYearView().click()
+        createNewMeetingPage.getMeetingYear().contains(this.data.meetingYear).click()
+        createNewMeetingPage.getMeetingMonth().contains(this.data.meetingMonth).click()
+        createNewMeetingPage.getMeetingDate().contains(this.data.meetingDay).click()
+
+        createNewMeetingPage.getMeetingStartTimeField().click()
+        createNewMeetingPage.getMeetingStartTimeHour().contains(this.data.startTimeHour).click()
+        createNewMeetingPage.getMeetingStartTimeMinute().contains(this.data.startTimeMinute).click({force: true})
+        createNewMeetingPage.getMeetingStartTimeAMPM().contains(this.data.startTimeAmpm).click()
+        createNewMeetingPage.getMeetingStartOKButton().contains('Ok').click()
+
+        createNewMeetingPage.getMeetingEndTimeField().click()
+        createNewMeetingPage.getMeetingEndTimeHour().contains(this.data.endTimeHour).click()
+        cy.wait(3000)
+        createNewMeetingPage.getMeetingEndTimeMinute().contains(this.data.endTimeMinute).click({force: true})
+        createNewMeetingPage.getMeetingEndTimeAMPM().contains(this.data.endTimeAmpm).click()
+        createNewMeetingPage.getMeetingEndOKButton().contains('Ok').click()
     })
 })
   
