@@ -2,7 +2,7 @@
     "defaultCommandTimeout": 8000,
     "pageLoadTimeout": 30000,
     "viewportHeight": 768,
-    "viewportWidth": 1024,
+    "viewportWidth": 1366,
     "reporter": "mochawesome",
     
     "env": {

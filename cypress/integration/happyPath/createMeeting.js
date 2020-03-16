@@ -98,13 +98,14 @@ describe('Create Meeting Test Suite', function()
         });
         createNewMeetingPage.getAttachmentSubmitButton().click()
 
-        createNewMeetingPage.getSaveMeetingButton().click()
+        //createNewMeetingPage.getSaveMeetingButton().click()
         cy.wait(3000)
 */
         //goto-attendee
-
+        createNewMeetingPage.getAttendeeTab().contains(this.data.attendeeTab).click()
 
         //entry attendee
+
         
 
     })

@@ -36,5 +36,9 @@
 
   "attachmentTab": "সংযুক্তি",
 
-  "AttendeeTab": "সদস্যগণ"
+  "attendeeTab": "সদস্যগণ",
+  "attendeeTypeTab1": "কর্মকর্তা / কর্মচারী",
+  "attendeeTypeTab2": "অতিথিবৃন্দ",
+  "attendeeTypeTab3": "গ্রুপ সমূহ" 
+
 }
