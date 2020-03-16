@@ -1,0 +1,100 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-03-16T06:30:07.112Z",
+    "end": "2020-03-16T06:31:48.609Z",
+    "duration": 101497,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "17574b06-9760-4f98-8cd6-454a326ab4bf",
+      "title": "",
+      "fullFile": "cypress\\integration\\happyPath\\createMeeting.js",
+      "file": "cypress\\integration\\happyPath\\createMeeting.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f2ed4560-5af7-4e0e-9ba7-df9c0cf5060a",
+          "title": "Create Meeting Test Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Create Meeting TC",
+              "fullTitle": "Create Meeting Test Suite Create Meeting TC",
+              "timedOut": null,
+              "duration": 98044,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Login \ncy.login(this.data.userName, this.data.password); //goto-mem\ndashboardPage.getMEMAvatar().click(); //mem-list\nmeetingListPage.getListNavLink().click(); //create-meeting\nmeetingListPage.getCreateNewButton().click(); //goto-basic-info\ncreateNewMeetingPage.getBasicInfoTab().contains(this.data.basicInfoTab).click(); //entry-basic-info\ncreateNewMeetingPage.getMeetingTitleField().click().type(this.data.meetingName);\ncreateNewMeetingPage.getReferenceNoField().click().type(this.data.referenceNo);\ncreateNewMeetingPage.getMeetingTypeField().click();\ncreateNewMeetingPage.getMeetingDropDownItem().contains(this.data.meetingType).click();\ncreateNewMeetingPage.getMeetingRoomField().click();\ncreateNewMeetingPage.getMeetingDropDownItem().contains(this.data.meetingRoom).click();\ncreateNewMeetingPage.getMeetingDateCalendar().click();\ncreateNewMeetingPage.getMeetingCalendarYearView().click();\ncreateNewMeetingPage.getMeetingYear().contains(this.data.meetingYear).click();\ncreateNewMeetingPage.getMeetingMonth().contains(this.data.meetingMonth).click();\ncreateNewMeetingPage.getMeetingDate().contains(this.data.meetingDay).click();\ncreateNewMeetingPage.getMeetingStartTimeField().click();\ncreateNewMeetingPage.getMeetingStartTimeHour().contains(this.data.startTimeHour).click();\ncreateNewMeetingPage.getMeetingStartTimeMinute().contains(this.data.startTimeMinute).click({\n  force: true\n});\ncreateNewMeetingPage.getMeetingStartTimeAMPM().contains(this.data.startTimeAmpm).click();\ncreateNewMeetingPage.getMeetingStartOKButton().contains('Ok').click();\ncreateNewMeetingPage.getMeetingEndTimeField().click();\ncreateNewMeetingPage.getMeetingEndTimeHour().contains(this.data.endTimeHour).click();\ncy.wait(3000);\ncreateNewMeetingPage.getMeetingEndTimeMinute().contains(this.data.endTimeMinute).click({\n  force: true\n});\ncreateNewMeetingPage.getMeetingEndTimeAMPM().contains(this.data.endTimeAmpm).click();\ncreateNewMeetingPage.getMeetingEndOKButton().contains('Ok').click(); //goto key personnel\ncreateNewMeetingPage.getKeyPersonTab().contains(this.data.keyPersonTab).click(); //entry key personnel data\ncreateNewMeetingPage.getMemberSecretaryField().click().type(this.data.memberSecretaryName);\ncreateNewMeetingPage.getMemberSecretaryDropDownItem().contains(this.data.memberSecretaryWithDesignation).click();\ncreateNewMeetingPage.getChairpersonType().contains(this.data.chairpersonType).click();\ncreateNewMeetingPage.getChairpersonField().click().type(this.data.chairpersonName);\ncreateNewMeetingPage.getChairpersonDropDownItem().contains(this.data.chairpersonWithDesignation).click();\ncreateNewMeetingPage.getChiefGuestType().contains(this.data.chiefGuestType).click();\ncreateNewMeetingPage.getChiefGuestField().click().type(this.data.chiefGuestName);\ncreateNewMeetingPage.getChiefGuestDropDownItem().contains(this.data.chiefGuestWithDesignation).click(); //goto agenda tab\ncreateNewMeetingPage.getAgendaTab().contains(this.data.agendaTab).click(); //entry agenda\nthis.data.agendaList.forEach(function (element) {\n  cy.addAgenda(element);\n}); //goto Attachment Tab সংযুক্তি\ncreateNewMeetingPage.getAttachmentTab().contains(this.data.attachmentTab).click();\ncy.wait(3000); //entry attachment\ncreateNewMeetingPage.getAddAttachmentButton().click();\nvar fileName = 'attachFile/TestFile.pdf';\ncy.fixture(fileName).then(function (fileContent) {\n  createNewMeetingPage.getAttachmentUploadButton().upload({\n    fileContent: fileContent,\n    fileName: fileName,\n    mimeType: 'application/json'\n  });\n});\ncreateNewMeetingPage.getAttachmentSubmitButton().click();",
+              "err": {},
+              "uuid": "e5bb9d31-e065-460e-92a8-e512bf29fc37",
+              "parentUUID": "f2ed4560-5af7-4e0e-9ba7-df9c0cf5060a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e5bb9d31-e065-460e-92a8-e512bf29fc37"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 98044,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.1.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "5.0.0"
+    },
+    "marge": {
+      "options": {},
+      "version": "4.1.0"
+    }
+  }
+}

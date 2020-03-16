@@ -3,19 +3,19 @@ class CreateNewMeetingPage
     //Basic info tab functions (মৌলিক তথ্য)
     getBasicInfoTab()
     {
-        return cy.get('#mat-tab-label-0-1 > .mat-tab-label-content')
+        return cy.get('div.mat-tab-label > .mat-tab-label-content')
     }
     getMeetingTitleField()
     {
-        return cy.get('#mat-input-9')
+        return cy.get('input[formcontrolname="meetingTitle"]')
     }
     getReferenceNoField()
     {
-        return cy.get('#mat-input-10')
+        return cy.get('input[formcontrolname="memorandumNo"]')
     }
     getMeetingTypeField()
     {
-        return cy.get('#mat-input-14')
+        return cy.xpath('(//div/input)[3]')
     }
     getMeetingDropDownItem()
     {
@@ -144,6 +144,36 @@ class CreateNewMeetingPage
         return cy.xpath('//button/span[contains(text(),"সংরক্ষন করুন")]')
     }
 
+    //Attachment Tab function সংযুক্তি
+    getAttachmentTab()
+    {
+        return cy.get('div.mat-tab-label > .mat-tab-label-content')
+    }
+    getAddAttachmentButton()
+    {
+        return cy.xpath('//mat-icon[contains(text(), "add")]')
+    }
+    getAttachmentUploadButton()
+    {
+        return cy.get('div.mat-dialog-content > input[type="file"]')
+    }
+    getAttachmentSubmitButton()
+    {
+        return cy.get('.mat-dialog-actions > .mat-primary > span')
+    }
+    getSaveMeetingButton()
+    {
+        return cy.xpath('//button//span[contains(text(),"সংরক্ষণ করুন")]')
+    }
+
+    //Attendee tab function সদস্যগণ
+    getAttendeeTab()
+    {
+        return cy.get('div.mat-tab-label > .mat-tab-label-content')
+    }
+    {
+        return cy.get('div.mat-tab-label > .mat-tab-label-content')
+    }
     
 }
 export default CreateNewMeetingPage;

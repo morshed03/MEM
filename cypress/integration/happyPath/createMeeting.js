@@ -12,14 +12,8 @@ describe('Create Meeting Test Suite', function()
         this.data = data
       })
       cy.visit(Cypress.env('url'))
-    })/*
-    beforeEach(function() 
-    {
-      cy.fixture('createMeetingData').then(function(data)
-      {
-        this.data = data
-      })
-    })*/
+    })
+    
 
     const dashboardPage = new DashboardPage()
     const meetingListPage = new MeetingListPage()
@@ -31,14 +25,16 @@ describe('Create Meeting Test Suite', function()
         cy.login(this.data.userName, this.data.password)
         //goto-mem
         dashboardPage.getMEMAvatar().click()
-        //mem-list
+        //mem-list তালিকা 
         meetingListPage.getListNavLink().click()
+        cy.get('tbody > :nth-child(1) > .cdk-column-meetingTitle').click()
+        /*
         //create-meeting
         meetingListPage.getCreateNewButton().click()
         //goto-basic-info
-        createNewMeetingPage.getBasicInfoTab().click()
+        createNewMeetingPage.getBasicInfoTab().contains(this.data.basicInfoTab).click()
         //entry-basic-info
-        /*
+        
         createNewMeetingPage.getMeetingTitleField().click().type(this.data.meetingName)
         createNewMeetingPage.getReferenceNoField().click().type(this.data.referenceNo)
 
@@ -81,7 +77,7 @@ describe('Create Meeting Test Suite', function()
         createNewMeetingPage.getChiefGuestType().contains(this.data.chiefGuestType).click()
         createNewMeetingPage.getChiefGuestField().click().type(this.data.chiefGuestName)
         createNewMeetingPage.getChiefGuestDropDownItem().contains(this.data.chiefGuestWithDesignation).click()
-        */
+        
        //goto agenda tab
        createNewMeetingPage.getAgendaTab().contains(this.data.agendaTab).click()
        //entry agenda
@@ -89,6 +85,27 @@ describe('Create Meeting Test Suite', function()
        {
         cy.addAgenda(element)
        });
+
+       //goto Attachment Tab সংযুক্তি
+       createNewMeetingPage.getAttachmentTab().contains(this.data.attachmentTab).click()
+       cy.wait(3000)
+       //entry attachment
+       createNewMeetingPage.getAddAttachmentButton().click()
+       const fileName = 'attachFile/TestFile.pdf';
+
+        cy.fixture(fileName).then(fileContent => {
+            createNewMeetingPage.getAttachmentUploadButton().upload({ fileContent, fileName, mimeType: 'application/json' });
+        });
+        createNewMeetingPage.getAttachmentSubmitButton().click()
+
+        createNewMeetingPage.getSaveMeetingButton().click()
+        cy.wait(3000)
+*/
+        //goto-attendee
+
+
+        //entry attendee
+        
 
     })
 })
