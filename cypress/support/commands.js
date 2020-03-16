@@ -6,6 +6,7 @@
 import 'cypress-file-upload';
 // Import page object
 import LoginPage from '../support/pageObjects/LoginPage'
+import CreateNewMeetingPage from '../support/pageObjects/CreateNewMeetingPage'
 // For more comprehensive examples of custom
 // commands please read more here:
 // https://on.cypress.io/custom-commands
@@ -13,15 +14,25 @@ import LoginPage from '../support/pageObjects/LoginPage'
 //
 //
 // -- This is a parent command --
+
 //Login method
 const loginPage = new LoginPage()
+const createNewMeetingPage = new CreateNewMeetingPage()
+
 Cypress.Commands.add("login", (userName, password) => 
 {
     loginPage.getUserNameInputBox().type(userName)
     loginPage.getPasswordInputBox().type(password)
     loginPage.getEnterButton().click()
 })
-//
+
+//This is the add agenda function
+Cypress.Commands.add("addAgenda", (agendaItem) => 
+{
+    createNewMeetingPage.getAddAgendaButton().click()
+    createNewMeetingPage.getAgendaInputField().type(agendaItem)
+    createNewMeetingPage.getAgendaSubmitButton().click()
+})
 //
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })

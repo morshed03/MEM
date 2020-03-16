@@ -1,5 +1,6 @@
 class CreateNewMeetingPage
 {
+    //Basic info tab functions (মৌলিক তথ্য)
     getBasicInfoTab()
     {
         return cy.get('#mat-tab-label-0-1 > .mat-tab-label-content')
@@ -84,5 +85,65 @@ class CreateNewMeetingPage
     {
         return cy.get('button.timepicker-button > span')
     }
+
+    //Key person tab functions গুরুত্বপূর্ণ ব্যক্তি 
+
+    getKeyPersonTab()
+    {
+        return cy.get('div.mat-tab-label > .mat-tab-label-content')
+    }
+    getMemberSecretaryField()
+    {
+        return cy.get('div.mat-form-field-infix > input[placeholder="মেম্বার সেক্রেটারি বাছাই করুন"]')
+    }
+    getMemberSecretaryDropDownItem()
+    {
+        return cy.get('mat-option.mat-option > span.mat-option-text')
+    }
+    getChairpersonType()
+    {
+        return cy.get('mat-radio-group[formcontrolname="chairpersonType"] > mat-radio-button > label > div')
+    }
+    getChairpersonField()
+    {
+        return cy.get('div.mat-form-field-infix > input[placeholder="চেয়ারপারসন বাছাই করুন"]')
+    }
+    getChairpersonDropDownItem()
+    {
+        return cy.get('mat-option.mat-option > span.mat-option-text')
+    }
+    getChiefGuestType()
+    {
+        return cy.get('mat-radio-group[formcontrolname="chiefGuestType"] > mat-radio-button > label > div')
+    }
+    getChiefGuestField()
+    {
+        return cy.get('div.mat-form-field-infix > input[placeholder="প্রধান অতিথি বাছাই করুন"]')
+    }
+    getChiefGuestDropDownItem()
+    {
+        return cy.get('mat-option.mat-option > span.mat-option-text')
+    }
+
+    //Agenda tab functions আলোচ্যসূচী 
+
+    getAgendaTab()
+    {
+        return cy.get('div.mat-tab-label > .mat-tab-label-content')
+    }
+    getAddAgendaButton()
+    {
+        return cy.get('button > span > mat-icon[role="img"]')
+    }
+    getAgendaInputField()
+    {
+        return cy.get('textarea[placeholder="আলোচ্য বিষয় লিখুন"]')
+    }
+    getAgendaSubmitButton()
+    {
+        return cy.xpath('//button/span[contains(text(),"সংরক্ষন করুন")]')
+    }
+
+    
 }
 export default CreateNewMeetingPage;

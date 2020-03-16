@@ -7,7 +7,7 @@ describe('Login Page Test Suite', function()
     beforeEach(function() {
       
       // runs once before all tests in the block
-      cy.fixture('commonData').then(function(data)
+      cy.fixture('MEMTestData').then(function(data)
       {
         this.data = data
       })

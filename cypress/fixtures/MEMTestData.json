@@ -18,6 +18,19 @@
   "endTimeHour": "10",
   "endTimeMinute": "00",
   "endTimeAmpm": "AM",
-  "notes": "date is changed for now as meetings on previous date are not available"
-  
+  "notes": "date is changed for now as meetings on previous date are not available",
+
+  "keyPersonTab": "গুরুত্বপূর্ণ ব্যক্তি",
+  "memberSecretaryName": "সুজিত কুমার পাল",
+  "memberSecretaryWithDesignation": "সুজিত কুমার পাল, সিনিয়র সচিব, SQA CoKreates, বাংলাদেশ কম্পিউটার কাউন্সিল (বিসিসি)",
+  "chairpersonType": "কর্মকর্তা/কর্মচারী",
+  "chairpersonName": "মোরশেদ আলম",
+  "chairpersonWithDesignation": "মোরশেদ আলম, সচিব, SQA CoKreates, বাংলাদেশ কম্পিউটার কাউন্সিল (বিসিসি)",
+  "chiefGuestName": "রাইসা আমিন",
+  "chiefGuestWithDesignation": "রাইসা আমিন 1, যুগ্ম-প্রধান, SQA CoKreates, বাংলাদেশ কম্পিউটার কাউন্সিল (বিসিসি)",
+  "chiefGuestType": "কর্মকর্তা/কর্মচারী",
+
+  "agendaTab": "আলোচ্যসূচী",
+  "agendaList": ["গত ১৬/০৫/২০১৯ তারিখ অনুষ্ঠিত প্রকল্প বাস্তবায়ন কমটি (PIC) -র সপ্তম সভার কার্যবিবরণী আলোচনা এবং দৃঢ়করণ;","সপ্তম PIC সভার সিদ্ধান্তের বাস্তবায়ন অগ্রগতি পর্যালোচনা;",
+                "প্রকল্পের অঙ্গভিত্তিক বাস্তবায়ন অগ্রগতি পর্যালোচনা;", "বার্ষিক ক্রয় ও কর্মপরিকল্পনা পর্যালোচনা;", "মডিউল উন্নয়ন অগ্রগতি পর্যালোচনা;", "GRP Sustainable Plan পর্যালোচনা;", "বিবিধ।"]
 }

@@ -38,12 +38,16 @@ describe('Create Meeting Test Suite', function()
         //goto-basic-info
         createNewMeetingPage.getBasicInfoTab().click()
         //entry-basic-info
+        /*
         createNewMeetingPage.getMeetingTitleField().click().type(this.data.meetingName)
         createNewMeetingPage.getReferenceNoField().click().type(this.data.referenceNo)
+
         createNewMeetingPage.getMeetingTypeField().click()
         createNewMeetingPage.getMeetingDropDownItem().contains(this.data.meetingType).click()
+
         createNewMeetingPage.getMeetingRoomField().click()
         createNewMeetingPage.getMeetingDropDownItem().contains(this.data.meetingRoom).click()
+
         createNewMeetingPage.getMeetingDateCalendar().click()
         createNewMeetingPage.getMeetingCalendarYearView().click()
         createNewMeetingPage.getMeetingYear().contains(this.data.meetingYear).click()
@@ -62,6 +66,30 @@ describe('Create Meeting Test Suite', function()
         createNewMeetingPage.getMeetingEndTimeMinute().contains(this.data.endTimeMinute).click({force: true})
         createNewMeetingPage.getMeetingEndTimeAMPM().contains(this.data.endTimeAmpm).click()
         createNewMeetingPage.getMeetingEndOKButton().contains('Ok').click()
+        
+        //goto key personnel
+        createNewMeetingPage.getKeyPersonTab().contains(this.data.keyPersonTab).click()
+
+        //entry key personnel data
+        createNewMeetingPage.getMemberSecretaryField().click().type(this.data.memberSecretaryName)
+        createNewMeetingPage.getMemberSecretaryDropDownItem().contains(this.data.memberSecretaryWithDesignation).click()
+
+        createNewMeetingPage.getChairpersonType().contains(this.data.chairpersonType).click()
+        createNewMeetingPage.getChairpersonField().click().type(this.data.chairpersonName)
+        createNewMeetingPage.getChairpersonDropDownItem().contains(this.data.chairpersonWithDesignation).click()
+
+        createNewMeetingPage.getChiefGuestType().contains(this.data.chiefGuestType).click()
+        createNewMeetingPage.getChiefGuestField().click().type(this.data.chiefGuestName)
+        createNewMeetingPage.getChiefGuestDropDownItem().contains(this.data.chiefGuestWithDesignation).click()
+        */
+       //goto agenda tab
+       createNewMeetingPage.getAgendaTab().contains(this.data.agendaTab).click()
+       //entry agenda
+       this.data.agendaList.forEach(function(element) 
+       {
+        cy.addAgenda(element)
+       });
+
     })
 })
   
