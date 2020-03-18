@@ -8,11 +8,11 @@ class LoginPage
     {
         return cy.get('input[name="password"]')
     }
-    getEnterButton()
+    getEnterButton() //প্রবেশ করুন button
     {
-        return cy.get('.col-6 > .btn')
+        return cy.get('button.btn.btn-primary[type="button"]')
     }
-    getValidationMessage()
+    getValidationMessage() //Validation message
     {
         return cy.get('.mat-simple-snackbar > :nth-child(1)')
     }

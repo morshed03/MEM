@@ -22,13 +22,8 @@ describe('Login Page Test Suite', function()
         loginPage.getPasswordInputBox().type(this.data.password).should('have.value', this.data.password)
         loginPage.getEnterButton().should('contain','প্রবেশ করুন').click()
        
-        cy.get('.img-avatar').click({ force: true })
-      /*
-        cy.get('.img-avatar').trigger('mouseover')
-        cy.wait(3000)
-        cy.get('div[aria-labelledby=simple-dropdown]').should('be.visible')
-        cy.get('div.col-sm-5 > button[type=button]').click()
-      */
+        //cy.get('.img-avatar').click({ force: true })
+        cy.logout()
     })
   
     it('Blank Test Case',function() 

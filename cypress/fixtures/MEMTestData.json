@@ -39,6 +39,11 @@
   "attendeeTab": "সদস্যগণ",
   "attendeeTypeTab1": "কর্মকর্তা / কর্মচারী",
   "attendeeTypeTab2": "অতিথিবৃন্দ",
-  "attendeeTypeTab3": "গ্রুপ সমূহ" 
+  "attendeeTypeTab3": "গ্রুপ সমূহ",
+  "attendeeName": ["শামীমা নাসরিন", "তায়েফ ইমাম"],
+  "attendeeOffice": "আইসিটিডি টেস্ট অফিস",
+  "attendeeDepartment": "প্রশাসন",
+  "attendeeDesignation": ["অতিরিক্ত সচিব", "যুুগ্ম সচিব"],
+  "Comment": "সভায় একজন উপযুক্ত প্রতিনিধি প্রেরণের অুনরোধসহ"
 
 }

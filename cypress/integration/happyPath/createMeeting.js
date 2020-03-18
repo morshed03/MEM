@@ -100,14 +100,37 @@ describe('Create Meeting Test Suite', function()
 
         //createNewMeetingPage.getSaveMeetingButton().click()
         cy.wait(3000)
-*/
+
         //goto-attendee
         createNewMeetingPage.getAttendeeTab().contains(this.data.attendeeTab).click()
 
         //entry attendee
-
+        createNewMeetingPage.getAddAttendeeButton().click()                                         //সদস্য যোগ করুন button
+        cy.wait(2000)
+        createNewMeetingPage.getAttendeeTypeTab().contains(this.data.attendeeTypeTab1).click()                    //Attendee tabs
+        createNewMeetingPage.getAttendeeFilterButton().click()                                      //Filter icon on pop-over page
+        createNewMeetingPage.getAttendeeOfficeFilterField().click()                                 // Office filter field (অফিস বাছাই করুন)
+        createNewMeetingPage.getAttendeeOfficeDropDownItems().contains(this.data.attendeeOffice).click()
+        createNewMeetingPage.getAttendeeDepartmentField().click()                                   // Department field বিভাগ 
+        createNewMeetingPage.getAttendeeDepartmentDropDownItems().contains(this.data.attendeeDepartment).click()
+        createNewMeetingPage.getAttendeeSearchButton().click()                                      // Search button 
+        createNewMeetingPage.getAttendeeFilterButton().click()                                      //Filter icon
+        createNewMeetingPage.getAllAttendeeCheckbox().click()                                       //Select attendee from the search result page
+        createNewMeetingPage.getAttendeeSubmitButton().click()                                      // সদস্য হিসেবে অন্তর্ভুক্ত করুন button
+        cy.wait(3000)
+        createNewMeetingPage.getCommentButton().click()                                             // Comment button মন্তব্য plus icon
+        createNewMeetingPage.getEntryCommentField().type(this.data.Comment).should('have.value', this.data.Comment)
+        createNewMeetingPage.getSubmitCommentButton().click()                                       //Submit Comment from the (মন্তব্য যোগ করুন) pop-op 
+        cy.wait(3000)
+        createNewMeetingPage.getEditButton().click()                                                // সম্পাদনা করুন button
+        createNewMeetingPage.getAcknowledgementCheckbox().click()                                  // অবগতি
+        createNewMeetingPage.getNameInclusionCheckbox().click()                                     // নাম অন্তর্ভুক্তি
+        createNewMeetingPage.getSignatoryCheckbox().click()                                         // কার্যবিবরণী সাক্ষরকারী
+        createNewMeetingPage.getWorkingPaperCheckbox().click()                                      // কার্যপত্র
+        createNewMeetingPage.getSaveButton().click()                                              //  সংরক্ষণ করুন
+*/      
+        //generate-notice
         
-
     })
 })
   
