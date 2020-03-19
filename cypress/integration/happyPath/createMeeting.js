@@ -2,6 +2,8 @@
 import DashboardPage from '../../support/pageObjects/DashboardPage'
 import MeetingListPage from '../../support/pageObjects/MeetingListPage'
 import CreateNewMeetingPage from '../../support/pageObjects/CreateNewMeetingPage'
+import MeetingDetailsPage from '../../support/pageObjects/MeetingDetailsPage'
+import GenerateNotice from '../../support/pageObjects/GenerateNotice'
 
 describe('Create Meeting Test Suite', function()
 {
@@ -18,17 +20,20 @@ describe('Create Meeting Test Suite', function()
     const dashboardPage = new DashboardPage()
     const meetingListPage = new MeetingListPage()
     const createNewMeetingPage = new CreateNewMeetingPage()
+    const meetingDetailsPage = new MeetingDetailsPage()
+    const generateNotice = new GenerateNotice()
 
     it('Create Meeting TC',function() 
     {
         //Login 
         cy.login(this.data.userName, this.data.password)
-        //goto-mem
+        //goto MEM
         dashboardPage.getMEMAvatar().click()
         //mem-list তালিকা 
         meetingListPage.getListNavLink().click()
-        cy.get('tbody > :nth-child(1) > .cdk-column-meetingTitle').click()
-        /*
+        cy.wait(2000)
+        //cy.get('tbody > :nth-child(1) > .cdk-column-meetingTitle').click()
+       
         //create-meeting
         meetingListPage.getCreateNewButton().click()
         //goto-basic-info
@@ -89,47 +94,62 @@ describe('Create Meeting Test Suite', function()
        //goto Attachment Tab সংযুক্তি
        createNewMeetingPage.getAttachmentTab().contains(this.data.attachmentTab).click()
        cy.wait(3000)
-       //entry attachment
+       //entry attachment 
        createNewMeetingPage.getAddAttachmentButton().click()
-       const fileName = 'attachFile/TestFile.pdf';
+       const fileName = 'TestFile.pdf';
 
         cy.fixture(fileName).then(fileContent => {
             createNewMeetingPage.getAttachmentUploadButton().upload({ fileContent, fileName, mimeType: 'application/json' });
         });
         createNewMeetingPage.getAttachmentSubmitButton().click()
-
-        //createNewMeetingPage.getSaveMeetingButton().click()
-        cy.wait(3000)
+        cy.wait(2000)
+        createNewMeetingPage.getSaveMeetingButton().click()                 //Save the meeting
+        cy.wait(5000)
 
         //goto-attendee
-        createNewMeetingPage.getAttendeeTab().contains(this.data.attendeeTab).click()
+        meetingDetailsPage.getAttendeeTab().contains(this.data.attendeeTab).click()
+        cy.wait(1000)
 
         //entry attendee
-        createNewMeetingPage.getAddAttendeeButton().click()                                         //সদস্য যোগ করুন button
+        meetingDetailsPage.getAddAttendeeButton().click()                                         //সদস্য যোগ করুন button
         cy.wait(2000)
-        createNewMeetingPage.getAttendeeTypeTab().contains(this.data.attendeeTypeTab1).click()                    //Attendee tabs
-        createNewMeetingPage.getAttendeeFilterButton().click()                                      //Filter icon on pop-over page
-        createNewMeetingPage.getAttendeeOfficeFilterField().click()                                 // Office filter field (অফিস বাছাই করুন)
-        createNewMeetingPage.getAttendeeOfficeDropDownItems().contains(this.data.attendeeOffice).click()
-        createNewMeetingPage.getAttendeeDepartmentField().click()                                   // Department field বিভাগ 
-        createNewMeetingPage.getAttendeeDepartmentDropDownItems().contains(this.data.attendeeDepartment).click()
-        createNewMeetingPage.getAttendeeSearchButton().click()                                      // Search button 
-        createNewMeetingPage.getAttendeeFilterButton().click()                                      //Filter icon
-        createNewMeetingPage.getAllAttendeeCheckbox().click()                                       //Select attendee from the search result page
-        createNewMeetingPage.getAttendeeSubmitButton().click()                                      // সদস্য হিসেবে অন্তর্ভুক্ত করুন button
+        meetingDetailsPage.getAttendeeTypeTab().contains(this.data.attendeeTypeTab1).click()                    //Attendee tabs
+        meetingDetailsPage.getAttendeeFilterButton().click()                                      //Filter icon on pop-over page
+        meetingDetailsPage.getAttendeeOfficeFilterField().click()                                 // Office filter field (অফিস বাছাই করুন)
+        meetingDetailsPage.getAttendeeOfficeDropDownItems().contains(this.data.attendeeOffice).click()
+        meetingDetailsPage.getAttendeeDepartmentField().click()                                   // Department field বিভাগ 
+        meetingDetailsPage.getAttendeeDepartmentDropDownItems().contains(this.data.attendeeDepartment).click()
+        meetingDetailsPage.getAttendeeSearchButton().click()                                      // Search button 
+        meetingDetailsPage.getAttendeeFilterButton().click()                                      //Filter icon
+        meetingDetailsPage.getAllAttendeeCheckbox().click()                                       //Select attendee from the search result page
+        meetingDetailsPage.getAttendeeSubmitButton().click()                                      // সদস্য হিসেবে অন্তর্ভুক্ত করুন button
         cy.wait(3000)
-        createNewMeetingPage.getCommentButton().click()                                             // Comment button মন্তব্য plus icon
-        createNewMeetingPage.getEntryCommentField().type(this.data.Comment).should('have.value', this.data.Comment)
-        createNewMeetingPage.getSubmitCommentButton().click()                                       //Submit Comment from the (মন্তব্য যোগ করুন) pop-op 
+        meetingDetailsPage.getCommentButton().click()                                             // Comment button মন্তব্য plus icon
+        meetingDetailsPage.getEntryCommentField().type(this.data.Comment).should('have.value', this.data.Comment)
+        meetingDetailsPage.getSubmitCommentButton().click()                                       //Submit Comment from the (মন্তব্য যোগ করুন) pop-op 
         cy.wait(3000)
-        createNewMeetingPage.getEditButton().click()                                                // সম্পাদনা করুন button
-        createNewMeetingPage.getAcknowledgementCheckbox().click()                                  // অবগতি
-        createNewMeetingPage.getNameInclusionCheckbox().click()                                     // নাম অন্তর্ভুক্তি
-        createNewMeetingPage.getSignatoryCheckbox().click()                                         // কার্যবিবরণী সাক্ষরকারী
-        createNewMeetingPage.getWorkingPaperCheckbox().click()                                      // কার্যপত্র
-        createNewMeetingPage.getSaveButton().click()                                              //  সংরক্ষণ করুন
-*/      
+        meetingDetailsPage.getEditButton().click()                                                // সম্পাদনা করুন button
+        meetingDetailsPage.getAcknowledgementCheckbox().click()                                  // অবগতি
+        meetingDetailsPage.getNameInclusionCheckbox().click()                                     // নাম অন্তর্ভুক্তি
+        meetingDetailsPage.getSignatoryCheckbox().click()                                         // কার্যবিবরণী সাক্ষরকারী
+        meetingDetailsPage.getWorkingPaperCheckbox().click()                                      // কার্যপত্র
+        meetingDetailsPage.getSaveButton().click()                                              //  সংরক্ষণ করুন
+     
         //generate-notice
+        cy.wait(2000)
+        generateNotice.getActionButton().click()            //অ্যাকশনসমূহ
+        generateNotice.getMakeNoticeIcon().click()          // নোটিশ তৈরি করুন
+        cy.wait(2000)
+        generateNotice.getTamplateField().click()           // টেমপ্লেট বাছাই করুন
+        generateNotice.getTamplateDropDown().contains(this.data.noticeTemplate).click() //Select tamplate
+        cy.wait(4000)
+        generateNotice.getTamplateSubmitButton().click()
+        generateNotice.getTamplateSendToApproveButton().click()
+
+        //Move to dashboard 
+        cy.GRPDashboard()
+        //Logout 
+        cy.logout()
         
     })
 })

@@ -1,19 +1,19 @@
 class CreateNewMeetingPage
 {
     //Basic info tab functions (মৌলিক তথ্য)
-    getBasicInfoTab()
+    getBasicInfoTab()                                                   //মৌলিক তথ্য tab
     {
         return cy.get('div.mat-tab-label > .mat-tab-label-content')
     }
-    getMeetingTitleField()
+    getMeetingTitleField()                                              //মিটিংয়ের শিরোনাম
     {
         return cy.get('input[formcontrolname="meetingTitle"]')
     }
-    getReferenceNoField()
+    getReferenceNoField()                                               //স্মারক নং
     {
         return cy.get('input[formcontrolname="memorandumNo"]')
     }
-    getMeetingTypeField()
+    getMeetingTypeField()                                               //মিটিংয়ের ধরন
     {
         return cy.xpath('(//div/input)[3]')
     }
@@ -21,11 +21,11 @@ class CreateNewMeetingPage
     {
         return  cy.get('mat-option > span.mat-option-text')
     }
-    getMeetingRoomField()
+    getMeetingRoomField()                                               //মিটিং রুম
     {
         return cy.get('input[placeholder="মিটিং রুম বাছাই করুন"]')
     }
-    getMeetingDateCalendar()
+    getMeetingDateCalendar()                                                // তারিখ​ 
     {
         return cy.get('svg.mat-datepicker-toggle-default-icon')
     }
@@ -45,7 +45,7 @@ class CreateNewMeetingPage
     {
         return cy.get('td > div.mat-calendar-body-cell-content')
     }
-    getMeetingStartTimeField()
+    getMeetingStartTimeField()                                              // মিটিং শুরুর সম​য় ​
     {
         return cy.get('input[formcontrolname="startTime"]')
     }
@@ -65,7 +65,7 @@ class CreateNewMeetingPage
     {
         return cy.get('button.timepicker-button > span')
     }
-    getMeetingEndTimeField()
+    getMeetingEndTimeField()                                                    // মিটিং শেষের​ সম​য় ​
     {
         return cy.get('input[formcontrolname="endTime"]')
     }
@@ -88,11 +88,11 @@ class CreateNewMeetingPage
 
     //Key person tab functions গুরুত্বপূর্ণ ব্যক্তি 
 
-    getKeyPersonTab()
+    getKeyPersonTab()                                                       //গুরুত্বপূর্ণ ব্যক্তি tab
     {
         return cy.get('div.mat-tab-label > .mat-tab-label-content')
     }
-    getMemberSecretaryField()
+    getMemberSecretaryField()                                               //সদস্য সচিব field
     {
         return cy.get('input[formcontrolname="signatory"]')
     }
@@ -100,11 +100,11 @@ class CreateNewMeetingPage
     {
         return cy.get('mat-option.mat-option > span.mat-option-text')
     }
-    getChairpersonType()
+    getChairpersonType()                                                // কর্মকর্তা/কর্মচারী radio button
     {
         return cy.get('mat-radio-group[formcontrolname="chairpersonType"] > mat-radio-button > label > div')
     }
-    getChairpersonField()
+    getChairpersonField()                                   // সভাপতি  field
     {
         return cy.get('input[formcontrolname="chairperson"]')
     }
@@ -116,7 +116,7 @@ class CreateNewMeetingPage
     {
         return cy.get('mat-radio-group[formcontrolname="chiefGuestType"] > mat-radio-button > label > div')
     }
-    getChiefGuestField()
+    getChiefGuestField()                                        //প্রধান অতিথি field
     {
         return cy.get('input[formcontrolname="chiefGuest"]')
     }
@@ -127,171 +127,43 @@ class CreateNewMeetingPage
 
     //Agenda tab functions আলোচ্যসূচী 
 
-    getAgendaTab()
+    getAgendaTab()                              //আলোচ্যসূচী tab
     {
         return cy.get('div.mat-tab-label > .mat-tab-label-content')
     }
-    getAddAgendaButton()
+    getAddAgendaButton()                        //Plus icon
     {
         return cy.get('button > span > mat-icon[role="img"]')
     }
-    getAgendaInputField()
+    getAgendaInputField()                       //আলোচ্য বিষয় লিখুন input field
     {
         return cy.get('textarea[placeholder="আলোচ্য বিষয় লিখুন"]')
     }
-    getAgendaSubmitButton()
+    getAgendaSubmitButton()                     //সংরক্ষন করুন button
     {
         return cy.xpath('//button/span[contains(text(),"সংরক্ষন করুন")]')
     }
 
     //Attachment Tab function সংযুক্তি
-    getAttachmentTab()
+    getAttachmentTab()                          //সংযুক্তি tab
     {
         return cy.get('div.mat-tab-label > .mat-tab-label-content')
     }
-    getAddAttachmentButton()
+    getAddAttachmentButton()                    //সংযুক্তি আপলোড করুন button
     {
         return cy.xpath('//mat-icon[contains(text(), "cloud_upload")]')
     }
-    getAttachmentUploadButton()
+    getAttachmentUploadButton()                 //Choose Files 
     {
         return cy.get('div.mat-dialog-content > input[type="file"]')
     }
-    getAttachmentSubmitButton()
+    getAttachmentSubmitButton()                   // সংরক্ষণ করুন button on pop-over
     {
         return cy.get('.mat-dialog-actions > .mat-primary > span')
     }
-    getSaveMeetingButton()
+    getSaveMeetingButton()                          //সংরক্ষণ করুন button from সংযুক্তি page
     {
-        return cy.xpath('//button//span[contains(text(),"সংরক্ষণ করুন")]')
-    }
-
-    //Attendee tab function সদস্যগণ
-    getAttendeeTab()
-    {
-        return cy.get('div.mat-tab-label > .mat-tab-label-content')
-    }
-    getAddAttendeeButton() //সদস্য যোগ করুন button
-    {
-        return cy.xpath('//button//span[contains(text(), "সদস্য যোগ করুন")]')
-    }
-    getAttendeeTypeTab()        //Attendee tabs
-    {
-        return cy.get('div.mat-tab-label > .mat-tab-label-content')
-    }
-    getAttendeeFilterButton()   //Filter icon on pop-over page
-    {
-        return cy.get('.float-right > .btn')
-    }
-    getAttendeeNameFilter()   //Type Attendee name
-    {
-        return cy.get('div.mat-form-field-infix > input[placeholder="Filter"]')
-    }
-    getAttendeeOfficeFilterField()   // Office filter field (অফিস বাছাই করুন)
-    {
-        return cy.get('mat-select[aria-label="অফিস বাছাই করুন"]')
-    }
-    getAttendeeOfficeDropDownItems()   // Office drop down list
-    {
-        return cy.get('mat-option > span.mat-option-text')
-    }
-    getAttendeeDepartmentField()   // Department field বিভাগ 
-    {
-        return cy.xpath('//mat-select[contains(@aria-label,"বিভাগ")]')
-    }
-    getAttendeeDepartmentDropDownItems()   // Department বিভাগ Drop-down items 
-    {
-        return cy.get('mat-option > span.mat-option-text')
-    }
-    getAttendeeDesignation()   // designation field পদবী 
-    {
-        return cy.xpath('//mat-select[@aria-label="পদবী বাছাই করুন"]')
-    }
-    getAttendeeDesignationDropDownItems()   // designation পদবী Drop-down items 
-    {
-        return cy.get('mat-option > span.mat-option-text')
-    }
-    getAttendeeSearchButton()   // Search button 
-    {
-        return cy.get('a.btn-primary > i.fa-search')
-    }
-    getAllAttendeeCheckbox()   // Select All Addendee from search result listing
-    {
-        return cy.xpath('(//table/thead/tr/th/mat-checkbox/label[@class="mat-checkbox-layout"])[2]')
-    }
-    getAttendeeSelectCheckbox()   // Select Addendee from search result listing
-    {
-        return cy.xpath('//app-member-management//tbody/tr/td/mat-checkbox')
-    }
-    getAttendeeSubmitButton()   // সদস্য হিসেবে অন্তর্ভুক্ত করুন button
-    {
-        return cy.xpath('//button[./span[contains(text(), "সদস্য হিসেবে অন্তর্ভুক্ত করুন")]]')
-    }
-    getCommentButton()   // Comment button মন্তব্য plus icon
-    {
-        return cy.xpath('//tbody/tr[last()-1]/td/button')
-    }
-    getEntryCommentField()   // Comment Input box on the (মন্তব্য যোগ করুন) pop-op
-    {
-        return cy.get('textarea[placeholder ="মন্তব্য লিখুন"]')
-    }
-    getSubmitCommentButton()   // Submit Comment from the (মন্তব্য যোগ করুন) pop-op 
-    {
-        //return cy.xpath('//app-remarks[./h1[contains(text(),"মন্তব্য যোগ করুন")]]/div/button/span[contains(text(),"সংরক্ষণ করুন")]')
-        return cy.xpath('(//div/button/span[contains(text(),"সংরক্ষণ করুন")])[3]')
-    }
-    getEditButton()   // সম্পাদনা করুন button
-    {
-        return cy.xpath('//button//span[contains(text(),"সম্পাদনা করুন")]')
-    }
-    getAcknowledgementCheckbox()   // অবগতি checkbox 
-    {
-        return cy.xpath('//tbody/tr[last()-1]/td[contains(@class,"acknowledgement")]/mat-checkbox')
-    }
-    getNameInclusionCheckbox()   // নাম অন্তর্ভুক্তি checkbox 
-    {
-        //return cy.xpath('//tbody/tr[last()-1]/td[contains(@class,"include")]/mat-checkbox')
-        return cy.xpath('//tbody/tr[last()-3]/td[contains(@class,"include")]/mat-checkbox')
-    }
-    getSignatoryCheckbox()   // কার্যবিবরণী সাক্ষরকারী checkbox 
-    {
-        //return cy.xpath('//tbody/tr[last()-1]/td[contains(@class,"signatory")]/mat-checkbox')
-        return cy.xpath('//tbody/tr[last()-5]/td[contains(@class,"signatory")]/mat-checkbox')
-    }
-    getWorkingPaperCheckbox()   // কার্যপত্র checkbox 
-    {
-        //return cy.xpath('//tbody/tr[last()-1]/td[contains(@class,"workingPaper")]/mat-checkbox')
-        return cy.xpath('//tbody/tr[last()-7]/td[contains(@class,"workingPaper")]/mat-checkbox')
-    }
-    getSaveButton()   //  সংরক্ষণ করুন button 
-    {
-        return cy.xpath('//button//span//mat-icon[contains(text(),"save")]')
-    }
-
-    //generate-notice
-    getActionButton()   // অ্যাকশনসমূহ icon
-    {
-        return cy.xpath('div.fab-container > button[mattooltip]')
-    }
-    getMakeNoticeIcon()   // নোটিশ তৈরি করুন
-    {
-        return cy.xpath('(//button//span//i[contains(text(),"post_add")])[1]')
-    }
-    getTamplateField()   // টেমপ্লেট বাছাই করুন field
-    {
-        return cy.get('div > mat-select[aria-label="টেমপ্লেট বাছাই করুন"]')
-    }
-    getTamplateDropDown()   // টেমপ্লেট drop-down items
-    {
-        return cy.get('mat-option > span.mat-option-text')
-    }
-    getTamplateSubmitButton()   // দাখিল করুন​ button
-    {
-        return cy.xpath('//button//span[contains(text(),"দাখিল করুন​")]')
-    }
-    getTamplateSendToApproveButton()   // দাখিল করুন​ button
-    {
-        return cy.xpath('//button[./span[contains(text(),"অনুমোদনের জন্য প্রেরণ করুন")]]')
+        return cy.xpath('(//button//span[contains(text(),"সংরক্ষণ করুন")])[1]')
     }
 
 

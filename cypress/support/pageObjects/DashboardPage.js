@@ -1,6 +1,6 @@
 class DashboardPage
 {
-    getMEMAvatar()
+    getMEMAvatar()  //MEM avatar
     {
         return cy.get('img[src="assets/img/brand/mem.svg"]')
     }
@@ -14,7 +14,7 @@ class DashboardPage
     }
     getUserCircle()     //User icon from any page
     {
-        return cy.get('li[placement="bottom right"] > a > i.fa.fa-user-circle.fa-lg"]')
+        return cy.get('li[placement="bottom right"] > a > i.fa.fa-user-circle.fa-lg')
     }
     getGRPDashbardLink() //জিআরপি ড্যাশবোর্ড​ link
     {

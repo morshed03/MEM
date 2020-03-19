@@ -6,12 +6,12 @@
   "//": "Create meeting data",
   "basicInfoTab": "মৌলিক তথ্য",
   "meetingName": "বাংলাদেশ ই-গভর্নমেন্ট ইআরপি (২য় সংশোধিত) প্রকল্পের \"প্রকল্প বাস্তবায়ন কমিটির পঞ্চম সভা\"",
-  "referenceNo": "৫৬.০১.০০০০.০২২.০৬.০২৭.১৯-খ-৩",
+  "referenceNo": "৫৬.০১.০০০০.০২২.০৬.০২৭.১৯-গ-১৩",
   "meetingType": "প্রকল্প স্টিয়ারিং কমিটির সভা(PSC)",
   "meetingRoom": "বিসিসি' র সভাকক্ষ (২য় তলা)",
   "meetingYear": "২০২০",
   "meetingMonth": "এপ্রিল",
-  "meetingDay": "৩",
+  "meetingDay": "৮",
   "startTimeHour": "8",
   "startTimeMinute": "00",
   "startTimeAmpm": "AM",
@@ -44,6 +44,9 @@
   "attendeeOffice": "আইসিটিডি টেস্ট অফিস",
   "attendeeDepartment": "প্রশাসন",
   "attendeeDesignation": ["অতিরিক্ত সচিব", "যুুগ্ম সচিব"],
-  "Comment": "সভায় একজন উপযুক্ত প্রতিনিধি প্রেরণের অুনরোধসহ"
+  "Comment": "সভায় একজন উপযুক্ত প্রতিনিধি প্রেরণের অুনরোধসহ",
+
+
+  "noticeTemplate": "CoKreates Standard Notice.docx"
 
 }

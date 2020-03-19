@@ -35,9 +35,11 @@ Cypress.Commands.add("logout", () =>
 })
 //Move to GRP Dashboard
 Cypress.Commands.add("GRPDashboard", () => 
-{
-    dashboardPage.getUserAvatar().click()
-    dashboardPage.getExitLink().click({force: true})
+{   
+    cy.wait(3000)
+    dashboardPage.getUserCircle().click()
+    cy.wait(1000)
+    dashboardPage.getGRPDashbardLink().click()
 })
 //This is the add agenda function
 Cypress.Commands.add("addAgenda", (agendaItem) => 

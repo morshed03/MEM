@@ -1,10 +1,10 @@
 class MeetingListPage
 {
-    getListNavLink()
+    getListNavLink()    //তালিকা link from left nav
     {
         return cy.get('a[href="/bcc/web/mem/meetings/list"]')
     }
-    getCreateNewButton()
+    getCreateNewButton() // নতুন মিটিং button
     {
         return cy.get('.float-right > .btn')
     }
