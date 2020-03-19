@@ -1,5 +1,14 @@
 class MeetingDetailsPage
 {
+    getActionButton()   // অ্যাকশনসমূহ icon
+    {
+        return cy.get('div.fab-container > button[mattooltip]')
+    }
+    getNoticeCirculate()   // নোটিশ প্রচার করুন icon
+    {
+        return cy.xpath('(//button//span//i[contains(text(),"add_alert")])[1]')
+    }
+
     //Attendee tab function সদস্যগণ
     getAttendeeTab()            //সদস্যগণ tab
     {

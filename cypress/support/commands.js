@@ -9,6 +9,7 @@ import LoginPage from '../support/pageObjects/LoginPage'
 import DashboardPage from '../support/pageObjects/DashboardPage'
 import CreateNewMeetingPage from '../support/pageObjects/CreateNewMeetingPage'
 import MeetingTodosPage from '../support/pageObjects/MeetingTodosPage'
+import MeetingListPage from '../support/pageObjects/MeetingListPage'
 // For more comprehensive examples of custom
 // commands please read more here:
 // https://on.cypress.io/custom-commands
@@ -21,6 +22,7 @@ const loginPage = new LoginPage()
 const dashboardPage = new DashboardPage()
 const createNewMeetingPage = new CreateNewMeetingPage()
 const meetingTodosPage = new MeetingTodosPage()
+const meetingListPage = new MeetingListPage()
 
 //Login method
 Cypress.Commands.add("login", (userName, password) => 
@@ -59,6 +61,18 @@ Cypress.Commands.add("selectMeetingFromTodos", (element) =>
         if(meetingName.includes(element))
         {
           $meeting.find('.cdk-column-actions > .mat-primary > .mat-button-wrapper > .mat-icon').click()
+        }
+    })
+})
+
+//Select the desired meeting from notice curculate on তালিকা page​
+Cypress.Commands.add("selectMeetingFromList", (element) => 
+{
+    meetingListPage.getSelectMeeting().each(($meeting, index, $list) => {
+        const meetingName = $meeting.text()
+        if(meetingName.includes(element))
+        {
+          $meeting.click()
         }
     })
 })

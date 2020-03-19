@@ -1,10 +1,6 @@
 class GenerateNotice
 {
     //generate-notice
-    getActionButton()   // অ্যাকশনসমূহ icon
-    {
-        return cy.get('div.fab-container > button[mattooltip]')
-    }
     getMakeNoticeIcon()   // নোটিশ তৈরি করুন
     {
         return cy.xpath('(//button//span//i[contains(text(),"post_add")])[1]')

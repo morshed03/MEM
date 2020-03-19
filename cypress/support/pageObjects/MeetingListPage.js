@@ -8,5 +8,9 @@ class MeetingListPage
     {
         return cy.get('.float-right > .btn')
     }
+    getSelectMeeting() // Select a meeting
+    {
+        return cy.get('tbody > tr > td')
+    }
 }
 export default MeetingListPage;

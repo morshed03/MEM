@@ -26,7 +26,7 @@ describe('Create Meeting Test Suite', function()
     const meetingTodosPage = new MeetingTodosPage()
 
     it('Create Meeting TC',function() 
-    { /*
+    { 
         //Login 
         cy.login(this.data.userName, this.data.password)
         //goto MEM
@@ -34,14 +34,13 @@ describe('Create Meeting Test Suite', function()
         //mem-list তালিকা 
         meetingListPage.getListNavLink().click()
         cy.wait(2000)
-        //cy.get('tbody > :nth-child(1) > .cdk-column-meetingTitle').click()
-       
+               
         //create-meeting
         meetingListPage.getCreateNewButton().click()
         //goto-basic-info
         createNewMeetingPage.getBasicInfoTab().contains(this.data.basicInfoTab).click()
         //entry-basic-info
-        
+      /*  
         createNewMeetingPage.getMeetingTitleField().click().type(this.data.meetingName)
         createNewMeetingPage.getReferenceNoField().click().type(this.data.referenceNo)
 
@@ -139,7 +138,7 @@ describe('Create Meeting Test Suite', function()
      
         //generate-notice
         cy.wait(2000)
-        generateNotice.getActionButton().click()            //অ্যাকশনসমূহ
+        meetingDetailsPage.getActionButton().click()            //অ্যাকশনসমূহ
         generateNotice.getMakeNoticeIcon().click()          // নোটিশ তৈরি করুন
         cy.wait(2000)
         generateNotice.getTamplateField().click()           // টেমপ্লেট বাছাই করুন
@@ -152,7 +151,7 @@ describe('Create Meeting Test Suite', function()
         cy.GRPDashboard()
         //Logout 
         cy.logout()
-*/
+
 
         //Approve the Notice as member Secretary
         //Login 
@@ -168,14 +167,34 @@ describe('Create Meeting Test Suite', function()
         cy.wait(3000)
         meetingTodosPage.getCommentField().click().type(this.data.approveComment)
         meetingTodosPage.getYesButton().click()
-        cy.wait(1000)
+      */  cy.wait(1000)
         //Move to dashboard 
         cy.GRPDashboard()
         //Logout 
         cy.logout()
-        
+       
 
-        //
+        //Notice circulate as Meeting Creator
+        //Login 
+        cy.login(this.data.userName, this.data.password)
+        cy.wait(2000)
+        //goto MEM
+        dashboardPage.getMEMAvatar().click()
+        cy.wait(1000)
+        //mem-list তালিকা 
+        meetingListPage.getListNavLink().click()
+        cy.wait(2000)
+        cy.selectMeetingFromList(this.data.meetingName1)
+        cy.wait(2000)
+        meetingDetailsPage.getActionButton().click()
+        cy.wait(1000)
+        meetingDetailsPage.getNoticeCirculate().click()
+        cy.wait(2000)
+        //Move to dashboard 
+        cy.GRPDashboard()
+        //Logout 
+        cy.logout()
+
     })
 })
   
