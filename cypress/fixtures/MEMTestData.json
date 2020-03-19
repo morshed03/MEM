@@ -1,11 +1,14 @@
 {
   "userName": "nilo0001",
   "password": "123456789",
+  "memberSecretaryUserName": "sujt0001",
+  "memberSecretaryPassword": "123456789",
   "validationMessage": "ব্যবহারকারীর নাম বা পাসওয়ার্ড ভুল!",
 
   "//": "Create meeting data",
   "basicInfoTab": "মৌলিক তথ্য",
   "meetingName": "বাংলাদেশ ই-গভর্নমেন্ট ইআরপি (২য় সংশোধিত) প্রকল্পের \"প্রকল্প বাস্তবায়ন কমিটির পঞ্চম সভা\"",
+  "meetingName1": "মাসিক এডিপি পর্যালোচনা সভা sk",
   "referenceNo": "৫৬.০১.০০০০.০২২.০৬.০২৭.১৯-গ-১৩",
   "meetingType": "প্রকল্প স্টিয়ারিং কমিটির সভা(PSC)",
   "meetingRoom": "বিসিসি' র সভাকক্ষ (২য় তলা)",
@@ -47,6 +50,8 @@
   "Comment": "সভায় একজন উপযুক্ত প্রতিনিধি প্রেরণের অুনরোধসহ",
 
 
-  "noticeTemplate": "CoKreates Standard Notice.docx"
+  "noticeTemplate": "CoKreates Standard Notice.docx",
+
+  "approveComment": "অনুমোদন দেওয়া হল"
 
 }

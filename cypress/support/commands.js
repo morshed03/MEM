@@ -8,6 +8,7 @@ import 'cypress-file-upload';
 import LoginPage from '../support/pageObjects/LoginPage'
 import DashboardPage from '../support/pageObjects/DashboardPage'
 import CreateNewMeetingPage from '../support/pageObjects/CreateNewMeetingPage'
+import MeetingTodosPage from '../support/pageObjects/MeetingTodosPage'
 // For more comprehensive examples of custom
 // commands please read more here:
 // https://on.cypress.io/custom-commands
@@ -19,6 +20,7 @@ import CreateNewMeetingPage from '../support/pageObjects/CreateNewMeetingPage'
 const loginPage = new LoginPage()
 const dashboardPage = new DashboardPage()
 const createNewMeetingPage = new CreateNewMeetingPage()
+const meetingTodosPage = new MeetingTodosPage()
 
 //Login method
 Cypress.Commands.add("login", (userName, password) => 
@@ -47,6 +49,18 @@ Cypress.Commands.add("addAgenda", (agendaItem) =>
     createNewMeetingPage.getAddAgendaButton().click()
     createNewMeetingPage.getAgendaInputField().type(agendaItem)
     createNewMeetingPage.getAgendaSubmitButton().click()
+})
+
+//Select the desired meeting from Notice listing of todos করণীয়​
+Cypress.Commands.add("selectMeetingFromTodos", (element) => 
+{
+    meetingTodosPage.getMeetingRow().each(($meeting, index, $list) => {
+        const meetingName = $meeting.find('.cdk-column-meetingTitle').text()
+        if(meetingName.includes(element))
+        {
+          $meeting.find('.cdk-column-actions > .mat-primary > .mat-button-wrapper > .mat-icon').click()
+        }
+    })
 })
 
 // This is the add attendee

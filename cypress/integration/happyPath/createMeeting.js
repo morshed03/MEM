@@ -4,6 +4,7 @@ import MeetingListPage from '../../support/pageObjects/MeetingListPage'
 import CreateNewMeetingPage from '../../support/pageObjects/CreateNewMeetingPage'
 import MeetingDetailsPage from '../../support/pageObjects/MeetingDetailsPage'
 import GenerateNotice from '../../support/pageObjects/GenerateNotice'
+import MeetingTodosPage from '../../support/pageObjects/MeetingTodosPage'
 
 describe('Create Meeting Test Suite', function()
 {
@@ -22,9 +23,10 @@ describe('Create Meeting Test Suite', function()
     const createNewMeetingPage = new CreateNewMeetingPage()
     const meetingDetailsPage = new MeetingDetailsPage()
     const generateNotice = new GenerateNotice()
+    const meetingTodosPage = new MeetingTodosPage()
 
     it('Create Meeting TC',function() 
-    {
+    { /*
         //Login 
         cy.login(this.data.userName, this.data.password)
         //goto MEM
@@ -145,12 +147,35 @@ describe('Create Meeting Test Suite', function()
         cy.wait(4000)
         generateNotice.getTamplateSubmitButton().click()
         generateNotice.getTamplateSendToApproveButton().click()
+      
+        //Move to dashboard 
+        cy.GRPDashboard()
+        //Logout 
+        cy.logout()
+*/
 
+        //Approve the Notice as member Secretary
+        //Login 
+        cy.login(this.data.memberSecretaryUserName, this.data.memberSecretaryPassword)
+        //goto MEM
+        cy.wait(3000)
+        dashboardPage.getMEMAvatar().click()
+        cy.wait(1000)
+        meetingTodosPage.getTodosLink().click()
+        cy.wait(2000)
+        meetingTodosPage.getNoticeLink().click()      //নোটিশ tab
+        cy.selectMeetingFromTodos(this.data.meetingName1)
+        cy.wait(3000)
+        meetingTodosPage.getCommentField().click().type(this.data.approveComment)
+        meetingTodosPage.getYesButton().click()
+        cy.wait(1000)
         //Move to dashboard 
         cy.GRPDashboard()
         //Logout 
         cy.logout()
         
+
+        //
     })
 })
   
