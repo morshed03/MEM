@@ -167,7 +167,7 @@ describe('Create Meeting Test Suite', function()
         cy.wait(3000)
         meetingTodosPage.getCommentField().click().type(this.data.approveComment)
         meetingTodosPage.getYesButton().click()
-      */  cy.wait(1000)
+        cy.wait(1000)
         //Move to dashboard 
         cy.GRPDashboard()
         //Logout 
@@ -184,16 +184,84 @@ describe('Create Meeting Test Suite', function()
         //mem-list তালিকা 
         meetingListPage.getListNavLink().click()
         cy.wait(2000)
+
         cy.selectMeetingFromList(this.data.meetingName1)
         cy.wait(2000)
         meetingDetailsPage.getActionButton().click()
         cy.wait(1000)
         meetingDetailsPage.getNoticeCirculate().click()
-        cy.wait(2000)
+      */  cy.wait(2000)
         //Move to dashboard 
         cy.GRPDashboard()
         //Logout 
         cy.logout()
+/*
+        //সাড়া Confirm attend the meeting as a participant
+        //Login 
+        cy.login(this.data.secretaryUserName, this.data.secretaryPassword)
+        cy.wait(2000)
+        //goto MEM
+        dashboardPage.getMEMAvatar().click()
+        cy.wait(2000)
+        //Todos list করণীয়​ 
+        meetingTodosPage.getTodosLink().click()
+        cy.wait(2000)
+        meetingTodosPage.getRespondTab().click()
+        cy.selectMeetingFromRespond(this.data.meetingName1)
+        cy.wait(1000)
+        meetingTodosPage.getYesButton().click()
+        cy.wait(2000)
+        //Move to dashboard 
+         cy.GRPDashboard()
+         //Logout 
+         cy.logout()
+
+        //সাড়া Confirm attend the meeting as a participant
+        //Login 
+        cy.login(this.data.memberSecretaryUserName, this.data.memberSecretaryPassword)
+        cy.wait(2000)
+        //goto MEM
+        dashboardPage.getMEMAvatar().click()
+        cy.wait(2000)
+        //Todos list করণীয়​ 
+        meetingTodosPage.getTodosLink().click()
+        cy.wait(2000)
+        meetingTodosPage.getRespondTab().click()
+        cy.selectMeetingFromRespond(this.data.meetingName1)
+        cy.wait(1000)
+        meetingTodosPage.getYesButton().click()
+        cy.wait(2000)
+        //Move to dashboard 
+         cy.GRPDashboard()
+         //Logout 
+         cy.logout()
+    */
+        //উপস্থিত নিন as a meeting creator
+        //Login 
+        cy.login(this.data.userName, this.data.password)
+        cy.wait(2000)
+        //goto MEM
+        dashboardPage.getMEMAvatar().click()
+        cy.wait(2000)
+        //mem-list তালিকা 
+        meetingListPage.getListNavLink().click()
+        cy.wait(2000)
+        //meetingListPage.getSearchField().click().type(this.data.meetingName1)
+        //meetingListPage.getSearchMagnifierIcon().click()
+        cy.wait(1000)
+        //cy.selectMeetingFromList(this.data.meetingName1)
+        cy.get(':nth-child(2) > .cdk-column-meetingTitle').click()
+        cy.wait(2000)
+        meetingDetailsPage.getAttendeeTab().contains(this.data.attendeeTab).click()
+        cy.wait(3000)
+        meetingDetailsPage.getActionButton().click()
+        cy.wait(1000)
+        meetingDetailsPage.getPresentIcon().click()
+        meetingDetailsPage.getPresenceToggle().click()
+        cy.wait(2000)
+        cy.selectAbsenceAttendee(this.data.absenceAttendee)
+        
+
 
     })
 })

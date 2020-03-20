@@ -8,6 +8,10 @@ class MeetingDetailsPage
     {
         return cy.xpath('(//button//span//i[contains(text(),"add_alert")])[1]')
     }
+    getPresentIcon()   // উপস্থিত নিন icon
+    {
+        return cy.xpath('//button//span//i[contains(text(),"assignment_ind")]')
+    }
 
     //Attendee tab function সদস্যগণ
     getAttendeeTab()            //সদস্যগণ tab
@@ -110,5 +114,17 @@ class MeetingDetailsPage
     {
         return cy.xpath('//button//span//mat-icon[contains(text(),"save")]')
     }
+
+    //মিটিংয়ের উপস্থিতি functions 
+    getPresenceToggle()   //  উপস্থিতি All toggle
+    {
+        return cy.get('th > mat-slide-toggle.mat-primary')
+    }
+    getAttendeeRow()   //  উপস্থিতি toggle
+    {
+        return cy.get('.cdk-overlay-pane > mat-dialog-container > app-attendance-honorarium-dialog > div > table > tbody > tr')
+    }
+
+
 }
 export default MeetingDetailsPage;

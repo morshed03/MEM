@@ -8,6 +8,10 @@ class MeetingTodosPage
     {
         return cy.xpath('//span[contains(text(),"নোটিশ")]')
     }
+    getRespondTab()    //সাড়া tab
+    {
+        return cy.xpath('//span[contains(text(),"সাড়া")]')
+    }
     getMeetingRow()    //Select the meeting
     {
         return cy.get('tbody > tr')

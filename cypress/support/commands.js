@@ -10,6 +10,7 @@ import DashboardPage from '../support/pageObjects/DashboardPage'
 import CreateNewMeetingPage from '../support/pageObjects/CreateNewMeetingPage'
 import MeetingTodosPage from '../support/pageObjects/MeetingTodosPage'
 import MeetingListPage from '../support/pageObjects/MeetingListPage'
+import MeetingDetailsPage from '../support/pageObjects/MeetingDetailsPage'
 // For more comprehensive examples of custom
 // commands please read more here:
 // https://on.cypress.io/custom-commands
@@ -23,6 +24,7 @@ const dashboardPage = new DashboardPage()
 const createNewMeetingPage = new CreateNewMeetingPage()
 const meetingTodosPage = new MeetingTodosPage()
 const meetingListPage = new MeetingListPage()
+const meetingDetailsPage = new MeetingDetailsPage()
 
 //Login method
 Cypress.Commands.add("login", (userName, password) => 
@@ -73,6 +75,30 @@ Cypress.Commands.add("selectMeetingFromList", (element) =>
         if(meetingName.includes(element))
         {
           $meeting.click()
+        }
+    })
+})
+
+//Select the desired meeting from Respond (সাড়া) listing of todos করণীয়​
+Cypress.Commands.add("selectMeetingFromRespond", (element) => 
+{
+    meetingTodosPage.getMeetingRow().each(($meeting, index, $list) => {
+        const meetingName = $meeting.find('.cdk-column-meetingTitle').text()
+        if(meetingName.includes(element))
+        {
+          $meeting.find('.cdk-column-actions > .mat-primary > .mat-button-wrapper > .mat-icon').click()
+        }
+    })
+})
+
+//Find অনুপস্থিতি attendee 
+Cypress.Commands.add("selectAbsenceAttendee", (element) => 
+{
+    meetingDetailsPage.getAttendeeRow().each(($attendee, index, $list) => {
+        const AttendeeName = $attendee.find('td.mat-column-member').text()
+        if(AttendeeName.includes(element))
+        {
+          $attendee.find('td > mat-slide-toggle > label').click()
         }
     })
 })
