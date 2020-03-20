@@ -262,7 +262,6 @@ describe('Create Meeting Test Suite', function()
         cy.selectAbsenceAttendee(this.data.absenceAttendee)
         
 
-
     })
 })
   
