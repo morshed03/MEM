@@ -12,6 +12,14 @@ class MeetingDetailsPage
     {
         return cy.xpath('//button//span//i[contains(text(),"assignment_ind")]')
     }
+    getWorkingPaperIcon()   // কার্যবিবরণী icon
+    {
+        return cy.xpath('(//button//span//i[contains(text(),"post_add")])[2]')
+    }
+    getWorkingPaperCirculateIcon()   // কার্যবিবরণী প্রচার করুন icon
+    {
+        return cy.xpath('(//button//span//i[contains(text(),"add_alert")])[2]')
+    }
 
     //Attendee tab function সদস্যগণ
     getAttendeeTab()            //সদস্যগণ tab
@@ -116,15 +124,128 @@ class MeetingDetailsPage
     }
 
     //মিটিংয়ের উপস্থিতি functions 
+    getPageHeader()         //মিটিংয়ের উপস্থিতি pop-up header
+    {
+        cy.xpath('//h1[contains(text(),"মিটিংয়ের উপস্থিতি")]')
+    }
     getPresenceToggle()   //  উপস্থিতি All toggle
     {
         return cy.get('th > mat-slide-toggle.mat-primary')
     }
-    getAttendeeRow()   //  উপস্থিতি toggle
+    getAttendeeRow()   //  উপস্থিতি rows on মিটিংয়ের উপস্থিতি pop-up
     {
         return cy.get('.cdk-overlay-pane > mat-dialog-container > app-attendance-honorarium-dialog > div > table > tbody > tr')
     }
+    getDefaultHonorariumField()   //  ডিফল্ট সম্মানী
+    {
+        //return cy.xpath('//label/mat-label[contains(text(),"ডিফল্ট সম্মানী")]')
+        return cy.get('.cdk-overlay-pane > mat-dialog-container > app-attendance-honorarium-dialog > div > div > mat-form-field > div > div > .mat-form-field-infix > input[type="number"]')
+    }
+    getHonorariumField() // Last সম্মানী field
+    {
+        return cy.get('.cdk-overlay-pane > mat-dialog-container tr  input[type="number"]:last')
+    }
+    getHonorariumSaveButton() //  সংরক্ষন করুন button
+    {
+        return cy.get('[cdkfocusinitial] > .mat-button-wrapper')
+    }
+    getHonorariumCloseButton() //   বন্ধ​ করুন button
+    {
+        return cy.get('button[color="warn"] > .mat-button-wrapper')
+    }
 
+
+    //Meeting মিটিং নোটসমূহ function
+    getDocumentSheetTab()            //নথি পত্র tab
+    {
+        return cy.get('div.mat-tab-label > .mat-tab-label-content')
+    }
+    getDocumentSheetRows()            //All tabs on নথি পত্র page
+    {
+        return cy.get('.mat-card-content mat-expansion-panel')
+    }
+    getAddNotePlusIcon()            //নোট যোগ করুন plus icon
+    {
+        return cy.get('button[mattooltip="নোট যোগ করুন"]')
+    }
+    getSelectAgendaField()            //আলোচ্য বিষয় input field
+    {
+        return cy.get('input[placeholder="আলোচ্য বিষয় বাছাই করুন"]')
+    }
+    getSelectDropDownItems()            //Drop-down items
+    {
+        return cy.get('mat-option > span.mat-option-text')
+    }
+    getSpickerField()            //বক্তা input field
+    {
+        return cy.get('input[placeholder="বক্তা বাছাই করুন"]')
+    }
+    getAddNotesField()            //নোট input field
+    {
+        return cy.get('textarea[placeholder="নোট যোগ করুন"]')
+    }
+    getSaveNotesButton()            // সংরক্ষন করুন button
+    {
+        return cy.get('[cdkfocusinitial] .mat-button-wrapper')
+    }
+    getcollapseButton()            // Collaps the expanded row
+    {
+        return cy.get('mat-expansion-panel-header.mat-expanded .mat-content')
+    }
+    
+
+    //Meeting  কার্যবিবরণী  function
+    getResolutionRow()            //কার্যবিবরণী row
+    {
+        //return cy.get('.mat-card-content mat-expansion-panel')
+        return cy.xpath('//mat-panel-title[contains(text(),"কার্যবিবরণী")]')
+    }
+    getAddResolutionPlusIcon()            //আলোচনা ও সিদ্ধান্ত যোগ করুন plus icon
+    {
+        return cy.get('[mattooltip="আলোচনা ও সিদ্ধান্ত​ যোগ​ করুন"]')
+    }
+    getAddAgendaInputField()            //আলোচ্য বিষয় field
+    {
+        return cy.get('input[placeholder="আলোচ্য বিষয় বাছাই করুন"]')
+    }
+    getAddDiscussionInputField()            //আলোচনা লিখুন field
+    {
+        return cy.xpath('//textarea[contains(@placeholder,"আলোচনা লিখুন")]')
+    }
+    getAddDessionInputField()            //সিদ্ধান্ত লিখুন field
+    {
+        return cy.xpath('//textarea[contains(@placeholder,"সিদ্ধান্ত লিখুন")]')
+    }
+    getAddDiscussionSaveButton()            //সংরক্ষন করুন button
+    {
+        return cy.xpath('//button/span[contains(text(),"সংরক্ষন করুন")]')
+    }
+
+    
+    //কার্যবিবরণী preparation functions
+    getWorkingPaperTemplateField()            //কার্যবিবরণী template
+    {
+        //return cy.get('.cdk-overlay-pane mat-select[aria-label="টেমপ্লেট বাছাই করুন"]')
+        return cy.xpath('//span[contains(text(),"টেমপ্লেট বাছাই করুন")]')
+    }
+    getWorkingPaperReferenceNoField()            //স্মারক নং
+    {
+        return cy.xpath('//input[contains(@placeholder,"কার্যবিবরণীর স্মারক নং লিখুন")]')
+    }
+    getWorkingPaperSaveButton()            //দাখিল button
+    {
+        return cy.xpath('//button/span[contains(text(),"দাখিল করুন​")]')
+    }
+    getWorkingPaperApprovalButton()            //দাখিল button
+    {
+        return cy.xpath('(//button/span[contains(@class,"mat-button-wrapper")])[5]')
+    }
+
+    //ঘটনা প্রবাহ​ tab functions
+    getActivityTab()            //ঘটনা প্রবাহ tab
+    {
+        return cy.get('div.mat-tab-label > .mat-tab-label-content')
+    }
 
 }
 export default MeetingDetailsPage;

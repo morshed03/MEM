@@ -28,5 +28,14 @@ class MeetingTodosPage
     {
         return cy.get('[cdkfocusinitial=""] > .mat-button-wrapper')
     }
+
+    getWorkingPaperink()    //কার্যবিবরনী tab
+    {
+        return cy.xpath('//span[contains(text(),"কার্যবিবরনী")]')
+    }
+    getWorkingPaperCommentField()    //কার্যবিবরনী মন্তব্য input field
+    {
+        return cy.xpath('//textarea[contains(@placeholder,"Please Write Your Comments")]')
+    }
 }
 export default MeetingTodosPage;

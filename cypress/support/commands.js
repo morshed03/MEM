@@ -103,6 +103,45 @@ Cypress.Commands.add("selectAbsenceAttendee", (element) =>
     })
 })
 
+// Different Honorarium for a specific attendee 
+Cypress.Commands.add("selectDifferentHonorariumAttendee", (dAttendeeName, dAmount) => 
+{
+    meetingDetailsPage.getAttendeeRow().each(($dattendee, index, $list) => {
+        const AttendeeName = $dattendee.find('td.mat-column-member').text()
+        if(AttendeeName.includes(dAttendeeName))
+        {
+          $dattendee.find('input[type="number"]').click().type(dAmount)  //সম্মানী input box
+          //cy.wait(1000)
+          //$attendee.find('td.cdk-column-honorarium > mat-form-field > div > div > div > input[type="number"]').type('5000')
+        }
+        //$attendee.find('td.cdk-column-honorarium > mat-form-field > div > div > div > input[type="number"]').type('{del}{selectall}{backspace}')
+    })
+})
+
+//This is the add meeting note function
+Cypress.Commands.add("addMeetingNote", (agenda, spicker, note) => 
+{
+    meetingDetailsPage.getAddNotePlusIcon().click()
+    meetingDetailsPage.getSelectAgendaField().click()
+    meetingDetailsPage.getSelectDropDownItems().contains(agenda).click()
+    meetingDetailsPage.getSpickerField().click()
+    meetingDetailsPage.getSelectDropDownItems().contains(spicker).click()
+    meetingDetailsPage.getAddNotesField().click().type(note)
+    meetingDetailsPage.getSaveNotesButton().click()
+})
+
+//This is the add meeting resolution function
+Cypress.Commands.add("addMeetingResolution", (agenda, discussion, decision) => 
+{
+    meetingDetailsPage.getAddResolutionPlusIcon().click()
+    meetingDetailsPage.getAddAgendaInputField().click()
+    meetingDetailsPage.getSelectDropDownItems().contains(agenda).click()
+    meetingDetailsPage.getAddDiscussionInputField().click().type(discussion)
+    meetingDetailsPage.getAddDessionInputField().click().type(decision)
+    meetingDetailsPage.getAddDiscussionSaveButton().click()
+
+})
+
 // This is the add attendee
 Cypress.Commands.add("addAttendee", (attendeeType, attendee, office, department, designation) => 
 {
