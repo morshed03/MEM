@@ -44,7 +44,8 @@ class MeetingDetailsPage
     }
     getAttendeeOfficeFilterField()   // Office filter field (অফিস বাছাই করুন)
     {
-        return cy.get('mat-select[aria-label="অফিস বাছাই করুন"]')
+        return cy.get('input[placeholder="অফিস বাছাই করুন"]')
+
     }
     getAttendeeOfficeDropDownItems()   // Office drop down list
     {
@@ -52,7 +53,7 @@ class MeetingDetailsPage
     }
     getAttendeeDepartmentField()   // Department field বিভাগ 
     {
-        return cy.xpath('//mat-select[contains(@aria-label,"বিভাগ")]')
+        return cy.get('input[placeholder="বিভাগ বাছাই করুন"]')
     }
     getAttendeeDepartmentDropDownItems()   // Department বিভাগ Drop-down items 
     {
@@ -60,7 +61,7 @@ class MeetingDetailsPage
     }
     getAttendeeDesignation()   // designation field পদবী 
     {
-        return cy.xpath('//mat-select[@aria-label="পদবী বাছাই করুন"]')
+        return cy.get('input[placeholder="পদবি বাছাই করুন"]')
     }
     getAttendeeDesignationDropDownItems()   // designation পদবী Drop-down items 
     {
@@ -73,6 +74,7 @@ class MeetingDetailsPage
     getAllAttendeeCheckbox()   // Select All Addendee from search result listing
     {
         return cy.xpath('(//table/thead/tr/th/mat-checkbox/label[@class="mat-checkbox-layout"])[2]')
+        //return cy.get('mat-dialog-container th div > input[type="checkbox"]')
     }
     getAttendeeSelectCheckbox()   // Select Addendee from search result listing
     {

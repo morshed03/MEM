@@ -4,7 +4,7 @@
 // existing commands.
 // File upload
 import 'cypress-file-upload';
-// Import page object
+// Import page object import
 import LoginPage from '../support/pageObjects/LoginPage'
 import DashboardPage from '../support/pageObjects/DashboardPage'
 import CreateNewMeetingPage from '../support/pageObjects/CreateNewMeetingPage'
@@ -17,8 +17,8 @@ import MeetingDetailsPage from '../support/pageObjects/MeetingDetailsPage'
 // ***********************************************
 //
 //
-// -- This is a parent command --
 
+// -- This is the create page object --
 const loginPage = new LoginPage()
 const dashboardPage = new DashboardPage()
 const createNewMeetingPage = new CreateNewMeetingPage()

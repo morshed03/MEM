@@ -33,7 +33,7 @@ describe('Create Meeting Test Suite', function()
         //goto MEM
         dashboardPage.getMEMAvatar().click()
         cy.wait(2000)
-        //mem-list তালিকা 
+        //mem-list তালিকা page
         meetingListPage.getListNavLink().click()
         cy.wait(3000)
                
@@ -42,21 +42,28 @@ describe('Create Meeting Test Suite', function()
         cy.wait(1000)
         //goto-basic-info
         createNewMeetingPage.getBasicInfoTab().contains(this.data.basicInfoTab).click()
+        cy.wait(1000)
+
         //entry-basic-info
         createNewMeetingPage.getMeetingTitleField().click().type(this.data.meetingName)
+        cy.wait(1000)
         createNewMeetingPage.getReferenceNoField().click().type(this.data.referenceNo)
+        cy.wait(1000)
 
         createNewMeetingPage.getMeetingTypeField().click()
         createNewMeetingPage.getMeetingDropDownItem().contains(this.data.meetingType).click()
+        cy.wait(1000)
 
         createNewMeetingPage.getMeetingRoomField().click()
         createNewMeetingPage.getMeetingDropDownItem().contains(this.data.meetingRoom).click()
+        cy.wait(1000)
 
         createNewMeetingPage.getMeetingDateCalendar().click()
         createNewMeetingPage.getMeetingCalendarYearView().click()
         createNewMeetingPage.getMeetingYear().contains(this.data.meetingYear).click()
         createNewMeetingPage.getMeetingMonth().contains(this.data.meetingMonth).click()
         createNewMeetingPage.getMeetingDate().contains(this.data.meetingDay).click()
+        cy.wait(1000)
 
         createNewMeetingPage.getMeetingStartTimeField().click()
         createNewMeetingPage.getMeetingStartTimeHour().contains(this.data.startTimeHour).click()
@@ -64,6 +71,7 @@ describe('Create Meeting Test Suite', function()
         createNewMeetingPage.getMeetingStartTimeMinute().contains(this.data.startTimeMinute).click({force: true})
         createNewMeetingPage.getMeetingStartTimeAMPM().contains(this.data.startTimeAmpm).click()
         createNewMeetingPage.getMeetingStartOKButton().contains('Ok').click()
+        cy.wait(1000)
 
         createNewMeetingPage.getMeetingEndTimeField().click()
         createNewMeetingPage.getMeetingEndTimeHour().contains(this.data.endTimeHour).click()
@@ -71,24 +79,30 @@ describe('Create Meeting Test Suite', function()
         createNewMeetingPage.getMeetingEndTimeMinute().contains(this.data.endTimeMinute).click({force: true})
         createNewMeetingPage.getMeetingEndTimeAMPM().contains(this.data.endTimeAmpm).click()
         createNewMeetingPage.getMeetingEndOKButton().contains('Ok').click()
+        cy.wait(1000)
         
         //goto key personnel
         createNewMeetingPage.getKeyPersonTab().contains(this.data.keyPersonTab).click()
+        cy.wait(1000)
 
         //entry key personnel data
         createNewMeetingPage.getMemberSecretaryField().click().type(this.data.memberSecretaryName)
         createNewMeetingPage.getMemberSecretaryDropDownItem().contains(this.data.memberSecretaryWithDesignation).click()
+        cy.wait(1000)
 
         createNewMeetingPage.getChairpersonType().contains(this.data.chairpersonType).click()
         createNewMeetingPage.getChairpersonField().click().type(this.data.chairpersonName)
         createNewMeetingPage.getChairpersonDropDownItem().contains(this.data.chairpersonWithDesignation).click()
+        cy.wait(1000)
 
         createNewMeetingPage.getChiefGuestType().contains(this.data.chiefGuestType).click()
         createNewMeetingPage.getChiefGuestField().click().type(this.data.chiefGuestName)
         createNewMeetingPage.getChiefGuestDropDownItem().contains(this.data.chiefGuestWithDesignation).click()
+        cy.wait(1000)
         
        //goto agenda tab
        createNewMeetingPage.getAgendaTab().contains(this.data.agendaTab).click()
+       cy.wait(1000)
        //entry agenda
        this.data.agendaList.forEach(function(element) 
        {
@@ -100,6 +114,7 @@ describe('Create Meeting Test Suite', function()
        cy.wait(3000)
        //entry attachment 
        createNewMeetingPage.getAddAttachmentButton().click()
+       cy.wait(1000)
        const fileName = 'TestFile.pdf';
 
         cy.fixture(fileName).then(fileContent => {
@@ -111,52 +126,62 @@ describe('Create Meeting Test Suite', function()
         createNewMeetingPage.getSaveMeetingButton().click()                 //Save the meeting
         cy.wait(5000)
 
+        //cy.xpath('/html/body/app-dashboard/div/main/div/ng-component/div/div/table/tbody/tr[1]/td[2]').click()
+
         //goto-attendee
         meetingDetailsPage.getAttendeeTab().contains(this.data.attendeeTab).click()
-        cy.wait(1000)
+        cy.wait(2000)
 
         //entry attendee
         meetingDetailsPage.getAddAttendeeButton().click()              //সদস্য যোগ করুন button
-        cy.wait(2000)
+        cy.wait(4000)
         meetingDetailsPage.getAttendeeTypeTab().contains(this.data.attendeeTypeTab1).click()          //Attendee tabs
         meetingDetailsPage.getAttendeeFilterButton().click()            //Filter icon on pop-over page
+        cy.wait(1000)
         meetingDetailsPage.getAttendeeOfficeFilterField().click()       // Office filter field (অফিস বাছাই করুন)
         meetingDetailsPage.getAttendeeOfficeDropDownItems().contains(this.data.attendeeOffice).click()
-        cy.wait(1000)
+        cy.wait(2000)
         meetingDetailsPage.getAttendeeDepartmentField().click()          // Department field বিভাগ 
         meetingDetailsPage.getAttendeeDepartmentDropDownItems().contains(this.data.attendeeDepartment).click()
-        cy.wait(1000)
+        cy.wait(2000)
         meetingDetailsPage.getAttendeeSearchButton().click()              // Search button
-        cy.wait(1000) 
+        cy.wait(2000) 
         meetingDetailsPage.getAttendeeFilterButton().click()              //Filter icon
+        cy.wait(1000)
         meetingDetailsPage.getAllAttendeeCheckbox().click()               //Select attendee from the search result page
+        cy.wait(2000)
         meetingDetailsPage.getAttendeeSubmitButton().click()              // সদস্য হিসেবে অন্তর্ভুক্ত করুন button
-        cy.wait(3000)
+        cy.wait(4000)
         meetingDetailsPage.getCommentButton().click()                     // Comment button মন্তব্য plus icon
+        cy.wait(1000)
         meetingDetailsPage.getEntryCommentField().type(this.data.Comment).should('have.value', this.data.Comment)
         meetingDetailsPage.getSubmitCommentButton().click()               //Submit Comment from the (মন্তব্য যোগ করুন) pop-op 
-        cy.wait(3000)
+        cy.wait(3500)
         meetingDetailsPage.getEditButton().click()                         // সম্পাদনা করুন button
-        cy.wait(1000)
-        meetingDetailsPage.getAcknowledgementCheckbox().click()            // অবগতি
-        meetingDetailsPage.getNameInclusionCheckbox().click()              // নাম অন্তর্ভুক্তি
-        meetingDetailsPage.getSignatoryCheckbox().click()                  // কার্যবিবরণী সাক্ষরকারী
-        meetingDetailsPage.getWorkingPaperCheckbox().click()               // কার্যপত্র
-        meetingDetailsPage.getSaveButton().click()                          //  সংরক্ষণ করুন
         cy.wait(2000)
+        meetingDetailsPage.getAcknowledgementCheckbox().click()            // অবগতি
+        cy.wait(1500)
+        meetingDetailsPage.getNameInclusionCheckbox().click()              // নাম অন্তর্ভুক্তি
+        cy.wait(1500)
+        meetingDetailsPage.getSignatoryCheckbox().click()                  // কার্যবিবরণী সাক্ষরকারী
+        cy.wait(1500)
+        meetingDetailsPage.getWorkingPaperCheckbox().click()               // কার্যপত্র
+        cy.wait(1500)
+        meetingDetailsPage.getSaveButton().click()                          //  সংরক্ষণ করুন
+        cy.wait(3000)
 
         //generate-notice 
         meetingDetailsPage.getActionButton().click()            //অ্যাকশনসমূহ
-        cy.wait(1000)
+        cy.wait(1500)
         generateNotice.getMakeNoticeIcon().click()          // নোটিশ তৈরি করুন
-        cy.wait(3000)
+        cy.wait(4000)
         generateNotice.getTamplateField().click()           // টেমপ্লেট বাছাই করুন
         generateNotice.getTamplateDropDown().contains(this.data.noticeTemplate).click() //Select tamplate
         cy.wait(2000)
         generateNotice.getTamplateSubmitButton().click()
         cy.wait(5000)
         generateNotice.getTamplateSendToApproveButton().click()
-        cy.wait(5000)
+        cy.wait(6000)
         //Move to dashboard 
         cy.GRPDashboard()
         cy.wait(1000)
@@ -170,11 +195,11 @@ describe('Create Meeting Test Suite', function()
         cy.wait(3000)
         //goto MEM
         dashboardPage.getMEMAvatar().click()
-        cy.wait(2000)
+        cy.wait(3000)
         meetingTodosPage.getTodosLink().click()
-        cy.wait(2000)
+        cy.wait(3000)
         meetingTodosPage.getNoticeLink().click()      //নোটিশ tab
-        cy.wait(1000)
+        cy.wait(2000)
         cy.selectMeetingFromTodos(this.data.meetingName)
         cy.wait(3000)
         meetingTodosPage.getCommentField().click().type(this.data.approveComment)
@@ -210,6 +235,7 @@ describe('Create Meeting Test Suite', function()
         //Logout 
         cy.logout()
 
+    /*    
         //সাড়া Confirm attend the meeting as a participant
         //Login 
         cy.login(this.data.secretaryUserName, this.data.secretaryPassword)
@@ -251,7 +277,7 @@ describe('Create Meeting Test Suite', function()
         cy.wait(1000)
         //Logout 
         cy.logout()
-    
+    */
 
         //উপস্থিত নিন as a meeting creator
         //Login 
@@ -281,6 +307,7 @@ describe('Create Meeting Test Suite', function()
         cy.wait(1000)
         meetingDetailsPage.getDefaultHonorariumField().click().type(this.data.defaultHonorarium)
         cy.wait(1000)
+
       /*  this.data.differentHonorarium.forEach(function(element) 
         {
           cy.selectDifferentHonorariumAttendee(element)
