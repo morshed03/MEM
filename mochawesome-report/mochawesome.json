@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 2,
-    "start": "2020-03-31T03:30:53.143Z",
-    "end": "2020-03-31T03:30:59.563Z",
-    "duration": 6420,
+    "start": "2020-03-31T05:00:10.450Z",
+    "end": "2020-03-31T05:00:16.660Z",
+    "duration": 6210,
     "testsRegistered": 4,
     "passPercent": 50,
     "pendingPercent": 0,
@@ -18,16 +18,16 @@
   },
   "results": [
     {
-      "uuid": "fb6ec031-612c-4029-b651-1fd1e044ac2c",
+      "uuid": "c179f2ec-0a90-408f-84b5-e9bee1b79478",
       "title": "",
-      "fullFile": "cypress\\integration\\loginGRPdashboard\\loginTest.js",
-      "file": "cypress\\integration\\loginGRPdashboard\\loginTest.js",
+      "fullFile": "cypress\\integration\\regressionTestOfMEM\\loginTest.js",
+      "file": "cypress\\integration\\regressionTestOfMEM\\loginTest.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "f0ffe390-5a49-4a80-88ef-00106dfa0f42",
+          "uuid": "737fae37-f726-424b-aab9-7b025eca50f1",
           "title": "Login Page Test Suite",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Login with valid Credential TC",
               "fullTitle": "Login Page Test Suite Login with valid Credential TC",
               "timedOut": null,
-              "duration": 2024,
+              "duration": 1951,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.visit(Cypress.env('url'));\nloginPage.getUserNameInputBox().type(this.data.userName).should('have.value', this.data.userName);\nloginPage.getPasswordInputBox().type(this.data.password).should('have.value', this.data.password);\nloginPage.getEnterButton().should('contain', 'প্রবেশ করুন').click(); //cy.get('.img-avatar').click({ force: true })\ncy.logout();",
               "err": {},
-              "uuid": "38b1dc91-8592-4159-ba58-459b6515325a",
-              "parentUUID": "f0ffe390-5a49-4a80-88ef-00106dfa0f42",
+              "uuid": "7763cb1e-73d3-4527-802b-652fe332b8e3",
+              "parentUUID": "737fae37-f726-424b-aab9-7b025eca50f1",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Blank Test Case",
               "fullTitle": "Login Page Test Suite Blank Test Case",
               "timedOut": null,
-              "duration": 352,
+              "duration": 306,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "cy.visit(Cypress.env('url'));\nloginPage.getEnterButton().click();\nloginPage.getValidationMessage().then(function (element) {\n  var actualText = element.text();\n  expect(actualText.includes(this.data.validationMessage)).to.be[\"true\"];\n});",
               "err": {},
-              "uuid": "33dacd0c-6fc1-4481-bbe9-b4a9e1188318",
-              "parentUUID": "f0ffe390-5a49-4a80-88ef-00106dfa0f42",
+              "uuid": "53cdb0b2-7854-4806-bd51-7799bcc1c366",
+              "parentUUID": "737fae37-f726-424b-aab9-7b025eca50f1",
               "isHook": false,
               "skipped": false
             },
@@ -74,7 +74,7 @@
               "title": "Login with valid username but invalid pass TC",
               "fullTitle": "Login Page Test Suite Login with valid username but invalid pass TC",
               "timedOut": null,
-              "duration": 1224,
+              "duration": 1210,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -87,8 +87,8 @@
                 "estack": "AssertionError: expected false to be true\n    at getRet (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:132090:16)\n    at tryCatcher (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:9059:23)\n    at Function.Promise.attempt.Promise.try (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:6333:29)\n    at Context.thenFn (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:132104:23)\n    at Context.then (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:132479:21)\n    at Context.<anonymous> (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:144515:21)\n    at http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:143990:33\n    at tryCatcher (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:9059:23)\n    at Promise._settlePromiseFromHandler (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:6994:31)\n    at Promise._settlePromise (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:7051:18)\n    at Promise._settlePromiseCtx (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:7088:10)\n    at _drainQueueStep (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:3770:12)\n    at _drainQueue (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:3759:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:3775:5)\n    at Async.drainQueues (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:3645:14)",
                 "diff": null
               },
-              "uuid": "b54fcbd7-847b-4f9c-ad1c-b34f1d6185cd",
-              "parentUUID": "f0ffe390-5a49-4a80-88ef-00106dfa0f42",
+              "uuid": "c49ca7ad-cef6-4e97-925c-064cd91d4295",
+              "parentUUID": "737fae37-f726-424b-aab9-7b025eca50f1",
               "isHook": false,
               "skipped": false
             },
@@ -96,7 +96,7 @@
               "title": "Login with invalid username but valid pass TC",
               "fullTitle": "Login Page Test Suite Login with invalid username but valid pass TC",
               "timedOut": null,
-              "duration": 1286,
+              "duration": 1216,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -109,24 +109,24 @@
                 "estack": "AssertionError: expected false to be true\n    at getRet (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:132090:16)\n    at tryCatcher (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:9059:23)\n    at Function.Promise.attempt.Promise.try (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:6333:29)\n    at Context.thenFn (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:132104:23)\n    at Context.then (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:132479:21)\n    at Context.<anonymous> (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:144515:21)\n    at http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:143990:33\n    at tryCatcher (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:9059:23)\n    at Promise._settlePromiseFromHandler (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:6994:31)\n    at Promise._settlePromise (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:7051:18)\n    at Promise._settlePromiseCtx (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:7088:10)\n    at _drainQueueStep (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:3770:12)\n    at _drainQueue (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:3759:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:3775:5)\n    at Async.drainQueues (http://sqa.grp.gov.bd/__cypress/runner/cypress_runner.js:3645:14)",
                 "diff": null
               },
-              "uuid": "2ab30a7c-292b-432a-8d3e-861052ef4e9d",
-              "parentUUID": "f0ffe390-5a49-4a80-88ef-00106dfa0f42",
+              "uuid": "0427242a-3701-4afc-b164-17af61fcc49a",
+              "parentUUID": "737fae37-f726-424b-aab9-7b025eca50f1",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "38b1dc91-8592-4159-ba58-459b6515325a",
-            "33dacd0c-6fc1-4481-bbe9-b4a9e1188318"
+            "7763cb1e-73d3-4527-802b-652fe332b8e3",
+            "53cdb0b2-7854-4806-bd51-7799bcc1c366"
           ],
           "failures": [
-            "b54fcbd7-847b-4f9c-ad1c-b34f1d6185cd",
-            "2ab30a7c-292b-432a-8d3e-861052ef4e9d"
+            "c49ca7ad-cef6-4e97-925c-064cd91d4295",
+            "0427242a-3701-4afc-b164-17af61fcc49a"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 4886,
+          "duration": 4683,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
