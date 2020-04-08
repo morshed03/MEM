@@ -1,4 +1,5 @@
 /// <reference types="Cypress" />
+
 import DashboardPage from '../../support/pageObjects/DashboardPage'
 import MeetingListPage from '../../support/pageObjects/MeetingListPage'
 import CreateNewMeetingPage from '../../support/pageObjects/CreateNewMeetingPage'
@@ -10,7 +11,7 @@ describe('Create Meeting Test Suite', function()
 {
     beforeEach(function() 
     {
-      cy.fixture('MEMTestData').then(function(data)
+      cy.fixture('STGCreateMeetingData').then(function(data)
       {
         this.data = data
       })
@@ -25,7 +26,7 @@ describe('Create Meeting Test Suite', function()
     const generateNotice = new GenerateNotice()
     const meetingTodosPage = new MeetingTodosPage()
 
-    it('Create Meeting TC',function() 
+    it('Create Meeting and Notice Generate TC',function() 
     { 
         //Login 
         cy.login(this.data.userName, this.data.password)
@@ -123,10 +124,8 @@ describe('Create Meeting Test Suite', function()
         cy.wait(1000)
         createNewMeetingPage.getAttachmentSubmitButton().click()
         cy.wait(2000)
-        createNewMeetingPage.getSaveMeetingButton().click()                 //Save the meeting
+        createNewMeetingPage.getSaveMeetingButton().click()    //Save the meeting
         cy.wait(5000)
-
-        //cy.xpath('/html/body/app-dashboard/div/main/div/ng-component/div/div/table/tbody/tr[1]/td[2]').click()
 
         //goto-attendee
         meetingDetailsPage.getAttendeeTab().contains(this.data.attendeeTab).click()
@@ -179,17 +178,19 @@ describe('Create Meeting Test Suite', function()
         generateNotice.getTamplateDropDown().contains(this.data.noticeTemplate).click() //Select tamplate
         cy.wait(2000)
         generateNotice.getTamplateSubmitButton().click()
-        cy.wait(5000)
-        generateNotice.getTamplateSendToApproveButton().click()
         cy.wait(6000)
+        generateNotice.getTamplateSendToApproveButton().click()
+        cy.wait(7000)
         //Move to dashboard 
         cy.GRPDashboard()
         cy.wait(1000)
         //Logout 
         cy.logout()
+    })
 
-
-        //Approve the Notice as member Secretary
+    //Approve the Notice as member Secretary
+    it('Approve Notice as member Secretary TC',function() 
+    {
         //Login 
         cy.login(this.data.memberSecretaryUserName, this.data.memberSecretaryPassword)
         cy.wait(3000)
@@ -203,6 +204,7 @@ describe('Create Meeting Test Suite', function()
         cy.selectMeetingFromTodos(this.data.meetingName)
         cy.wait(3000)
         meetingTodosPage.getCommentField().click().type(this.data.approveComment)
+        cy.wait(1000)
         meetingTodosPage.getYesButton().click()
         cy.wait(5000)
         //Move to dashboard 
@@ -210,9 +212,11 @@ describe('Create Meeting Test Suite', function()
         cy.wait(1000)
         //Logout 
         cy.logout()
-       
+    })   
 
-        //Notice circulate as Meeting Creator
+    //Notice circulate as Meeting Creator
+    it('Notice circulate as Meeting Creator TC',function() 
+    {
         //Login 
         cy.login(this.data.userName, this.data.password)
         cy.wait(3000)
@@ -224,6 +228,7 @@ describe('Create Meeting Test Suite', function()
         cy.wait(5000)
 
         cy.selectMeetingFromList(this.data.meetingName)
+        //cy.get('tbody > :nth-child(1) > .cdk-column-meetingTitle').click()
         cy.wait(2000)
         meetingDetailsPage.getActionButton().click()
         cy.wait(1000)
@@ -234,9 +239,11 @@ describe('Create Meeting Test Suite', function()
         cy.wait(1000)
         //Logout 
         cy.logout()
-
-    /*    
-        //সাড়া Confirm attend the meeting as a participant
+    })
+        
+    //সাড়া Confirm attend the meeting as a participant
+    it('Confirm attend the meeting as a participant One TC',function() 
+    {
         //Login 
         cy.login(this.data.secretaryUserName, this.data.secretaryPassword)
         cy.wait(3000)
@@ -256,8 +263,10 @@ describe('Create Meeting Test Suite', function()
         cy.wait(1000)
         //Logout 
         cy.logout()
+    })
 
-        //সাড়া Confirm attend the meeting as a participant
+    it('Confirm attend the meeting as a participant Two TC',function() 
+    {
         //Login 
         cy.login(this.data.memberSecretaryUserName, this.data.memberSecretaryPassword)
         cy.wait(3000)
@@ -277,9 +286,11 @@ describe('Create Meeting Test Suite', function()
         cy.wait(1000)
         //Logout 
         cy.logout()
-    */
+    })
 
-        //উপস্থিত নিন as a meeting creator
+    //উপস্থিত নিন as a meeting creator
+    it('Present on meeting, honorarium and agenda followup TC',function() 
+    {
         //Login 
         cy.login(this.data.userName, this.data.password)
         cy.wait(3000)
@@ -368,9 +379,11 @@ describe('Create Meeting Test Suite', function()
         cy.wait(1000)
         //Logout 
         cy.logout()
+    })
 
-
-        //কার্যবিবরণী preparation
+    //কার্যবিবরণী preparation
+    it('Working Paper Preparation TC',function() 
+    {
         //Login 
         cy.login(this.data.userName, this.data.password)
         cy.wait(3000)
@@ -405,9 +418,11 @@ describe('Create Meeting Test Suite', function()
         cy.wait(1000)
         //Logout 
         cy.logout()
+    })
 
-
-        //Approve the working paper as a member Secretary
+    //Approve the working paper as a member Secretary
+    it('Approve working paper by member Secretary TC',function() 
+    {
         //Login 
         cy.login(this.data.memberSecretaryUserName, this.data.memberSecretaryPassword)
         cy.wait(3000)
@@ -428,9 +443,11 @@ describe('Create Meeting Test Suite', function()
         cy.wait(1000)
         //Logout 
         cy.logout()
-    
+    })
 
-        //কার্যবিবরণী প্রচার করুন  as a meeting creator
+    //কার্যবিবরণী প্রচার করুন  as a meeting creator
+    it('Circulate Working paper by meeting Creator TC',function() 
+    {
         //Login 
         cy.login(this.data.userName, this.data.password)
         cy.wait(3000)
@@ -445,8 +462,7 @@ describe('Create Meeting Test Suite', function()
         cy.wait(1000)
         cy.selectMeetingFromList(this.data.meetingName)
         cy.wait(2000)
-        //cy.get(':nth-child(2) > .cdk-column-meetingTitle').click()
-
+        
         meetingDetailsPage.getActionButton().click()
         meetingDetailsPage.getWorkingPaperCirculateIcon().click()
         cy.wait(4000)

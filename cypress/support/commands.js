@@ -29,9 +29,9 @@ const meetingDetailsPage = new MeetingDetailsPage()
 //Login method
 Cypress.Commands.add("login", (userName, password) => 
 {
-    loginPage.getUserNameInputBox().type(userName)
-    loginPage.getPasswordInputBox().type(password)
-    loginPage.getEnterButton().click()
+    loginPage.getUserNameInputBox().type(userName).should('have.value', userName)
+    loginPage.getPasswordInputBox().type(password).should('have.value', password)
+    loginPage.getEnterButton().click().should('have.text', 'প্রবেশ করুন')
 })
 //Log Out 
 Cypress.Commands.add("logout", () => 
@@ -42,7 +42,6 @@ Cypress.Commands.add("logout", () =>
 //Move to GRP Dashboard
 Cypress.Commands.add("GRPDashboard", () => 
 {   
-    cy.wait(3000)
     dashboardPage.getUserCircle().click()
     cy.wait(1000)
     dashboardPage.getGRPDashbardLink().click()

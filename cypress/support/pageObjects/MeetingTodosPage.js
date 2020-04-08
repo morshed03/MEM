@@ -2,7 +2,8 @@ class MeetingTodosPage
 {
     getTodosLink()    //করণীয়​ link from left nav
     {
-        return cy.get('a[href="/bcc/web/mem/meetings/todos/0"]')
+        //return cy.get('a[href="/bcc/web/mem/meetings/todos/0"]')
+        return cy.get('a[href="/ictd/web/mem/meetings/todos/0"]')   //For ICTD
     }
     getNoticeLink()    //নোটিশ tab
     {

@@ -6,7 +6,7 @@ class MeetingDetailsPage
     }
     getNoticeCirculate()   // নোটিশ প্রচার করুন icon
     {
-        return cy.xpath('(//button//span//i[contains(text(),"add_alert")])[1]')
+        return cy.get('div.ng-trigger-speedDialStagger button:eq(7)')
     }
     getPresentIcon()   // উপস্থিত নিন icon
     {
