@@ -11,7 +11,7 @@ describe('Create Meeting Test Suite', function()
 {
     beforeEach(function() 
     {
-      cy.fixture('STGCreateMeetingData').then(function(data)
+      cy.fixture('MEMTestData').then(function(data)
       {
         this.data = data
       })
@@ -26,7 +26,7 @@ describe('Create Meeting Test Suite', function()
     const generateNotice = new GenerateNotice()
     const meetingTodosPage = new MeetingTodosPage()
 
-    it('Create Meeting and Notice Generate TC',function() 
+    it.only('Create Meeting and Notice Generate TC',function() 
     { 
         //Login 
         cy.login(this.data.userName, this.data.password)
@@ -124,7 +124,7 @@ describe('Create Meeting Test Suite', function()
         cy.wait(1000)
         createNewMeetingPage.getAttachmentSubmitButton().click()
         cy.wait(2000)
-        createNewMeetingPage.getSaveMeetingButton().click()    //Save the meeting
+        //createNewMeetingPage.getSaveMeetingButton().click()    //Save the meeting
         cy.wait(5000)
 
         //goto-attendee
