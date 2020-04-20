@@ -11,6 +11,7 @@ import CreateNewMeetingPage from '../support/pageObjects/CreateNewMeetingPage'
 import MeetingTodosPage from '../support/pageObjects/MeetingTodosPage'
 import MeetingListPage from '../support/pageObjects/MeetingListPage'
 import MeetingDetailsPage from '../support/pageObjects/MeetingDetailsPage'
+import GroupPage from '../support/pageObjects/GroupPage'
 // For more comprehensive examples of custom
 // commands please read more here:
 // https://on.cypress.io/custom-commands
@@ -25,6 +26,7 @@ const createNewMeetingPage = new CreateNewMeetingPage()
 const meetingTodosPage = new MeetingTodosPage()
 const meetingListPage = new MeetingListPage()
 const meetingDetailsPage = new MeetingDetailsPage()
+const groupPage = new GroupPage()
 
 //Login method
 Cypress.Commands.add("login", (userName, password) => 
@@ -162,6 +164,9 @@ Cypress.Commands.add("addAttendee", (attendeeType, attendee, office, department,
     createNewMeetingPage.getAttendeeSubmitButton().click()
 
 })
+
+//Select গ্রুপের নাম from the listing
+
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
 //

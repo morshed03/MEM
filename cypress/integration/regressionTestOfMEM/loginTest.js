@@ -15,14 +15,22 @@ describe('Login Page Test Suite', function()
 
     const loginPage = new LoginPage()
 
-    it('Login with valid Credential TC',function() 
+    it.only('Login with valid Credential TC',function() 
     {
+      cy.server()
+      cy.route('POST', 'http://sqa.grp.gov.bd/global/api/auth-service/auth-service/sec/master/authentication/v1/login').as('login')
+
         cy.visit(Cypress.env('url'))
         loginPage.getUserNameInputBox().type(this.data.userName).should('have.value', this.data.userName)
         loginPage.getPasswordInputBox().type(this.data.password).should('have.value', this.data.password)
         loginPage.getEnterButton().should('contain','প্রবেশ করুন').click()
-       
-        //cy.get('.img-avatar').click({ force: true })
+        cy.wait('@login')
+      
+      cy.get('@login').then(function (xhr) {
+        expect(xhr.status).to.eq(200)
+        expect(xhr.requestHeaders).to.have.property('Content-Type')
+        expect(xhr.method).to.eq('POST')
+      })  
         cy.logout()
     })
   

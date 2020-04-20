@@ -105,6 +105,24 @@
 
   "workingPaperComment": "কার্যবিবরনী অনুমোদন দেওয়া হল",
 
-  "activityTab": "ঘটনা প্রবাহ"
+  "activityTab": "ঘটনা প্রবাহ",
+
+  "officeBanglaName": "জিআরপি প্রকল্প, তথ্য ও যোগাযোগ প্রযুক্তি বিভাগ, আইসিটি টাওয়ার",
+  "officeBanglaNameUpdate": "জিআরপি প্রকল্প, তথ্য ও যোগাযোগ প্রযুক্তি বিভাগ, আইসিটি টাওয়ার, আগারগাঁও, ঢাকা।",
+  "officeEnglishName": "GRP Project, Information and Communication Technology Department, ICT Tower",
+  "officeEnglishNameUpdate": "GRP Project, Information and Communication Technology Department, ICT Tower, Agargaon, Dhaka.",
+  "departmentBanglaName": "এসকিউএ বিভাগ, জিআরপি প্রকল্প",
+  "departmentBanglaNameUpdate": "এসকিউএ বিভাগ, জিআরপি প্রকল্প, তথ্য ও যোগাযোগ প্রযুক্তি বিভাগ, আইসিটি টাওয়ার, আগারগাঁও, ঢাকা।",
+  "departmentEnglishName": "SQA Department, GRP Project",
+  "departmentEnglishNameUpdate": "SQA Department, GRP Project, Information and Communication Technology Department, ICT Tower, Agargaon, Dhaka.",
+  "designationBanglaName": "মোরশেদ আলম, সচিব, SQA CoKreates",
+  "designationBanglaNameUpdate": "মোরশেদ আলম, সচিব, SQA CoKreates, বাংলাদেশ কম্পিউটার কাউন্সিল (বিসিসি)",
+  "designationEnglishName": "Morshed Alam, সচিব, SQA CoKreates, বাংলাদেশ কম্পিউটার কাউন্সিল (বিসিসি)",
+  "designationEnglishNameUpdate": "Morshed Alam, সচিব, SQA CoKreates, বাংলাদেশ কম্পিউটার কাউন্সিল (বিসিসি)",
+
+  "groupName": "এসকিউএ টেস্ট কমিটি",
+  "groupNameUpdate": "এসকিউএ টেস্ট কমিটি গ্রুপ",
+  "groupDescription": "এটি এসকিউএ পরীক্ষার গ্রুপ",
+  "groupDescriptionUpdate": "এটি এসকিউএ পরীক্ষার গ্রুপ এবং পরীক্ষার পরে মোছা হবে।"
 
 }

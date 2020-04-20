@@ -40,12 +40,11 @@ class MeetingDetailsPage
     }
     getAttendeeNameFilter()   //Type Attendee name
     {
-        return cy.get('div.mat-form-field-infix > input[placeholder="Filter"]')
+        return cy.get('mat-card input:eq(0)')
     }
     getAttendeeOfficeFilterField()   // Office filter field (অফিস বাছাই করুন)
     {
-        return cy.get('input[placeholder="অফিস বাছাই করুন"]')
-
+        return cy.get('mat-card input:eq(1)')
     }
     getAttendeeOfficeDropDownItems()   // Office drop down list
     {
@@ -53,7 +52,7 @@ class MeetingDetailsPage
     }
     getAttendeeDepartmentField()   // Department field বিভাগ 
     {
-        return cy.get('input[placeholder="বিভাগ বাছাই করুন"]')
+        return cy.get('mat-card input:eq(2)')
     }
     getAttendeeDepartmentDropDownItems()   // Department বিভাগ Drop-down items 
     {
@@ -61,11 +60,15 @@ class MeetingDetailsPage
     }
     getAttendeeDesignation()   // designation field পদবী 
     {
-        return cy.get('input[placeholder="পদবি বাছাই করুন"]')
+        return cy.get('mat-card input:eq(3)')
     }
     getAttendeeDesignationDropDownItems()   // designation পদবী Drop-down items 
     {
         return cy.get('mat-option > span.mat-option-text')
+    }
+    getAttendeeNamePartField()   // শব্দাংশ field
+    {
+        return cy.get('mat-card input:eq(4)')
     }
     getAttendeeSearchButton()   // Search button 
     {
