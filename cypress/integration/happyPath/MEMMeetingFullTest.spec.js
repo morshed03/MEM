@@ -207,11 +207,6 @@ describe('Create Meeting Test Suite', function()
         cy.wait(1000)
         meetingTodosPage.getYesButton().click()
         cy.wait(5000)
-        //Move to dashboard 
-        cy.GRPDashboard()
-        cy.wait(1000)
-        //Logout 
-        cy.logout()
     })   
 
     //Notice circulate as Meeting Creator
@@ -228,7 +223,6 @@ describe('Create Meeting Test Suite', function()
         cy.wait(5000)
 
         cy.selectMeetingFromList(this.data.meetingName)
-        //cy.get('tbody > :nth-child(1) > .cdk-column-meetingTitle').click()
         cy.wait(2000)
         meetingDetailsPage.getActionButton().click()
         cy.wait(1000)
